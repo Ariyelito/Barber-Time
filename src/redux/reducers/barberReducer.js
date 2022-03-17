@@ -11,7 +11,8 @@ export default function (state = initialState, action) {
     switch (action.type) {
         case FAKE_ACTION:
             return {
-                ...state
+                ...state,
+                list: state.list.concat(action.payload)
             }
     }
     return state;

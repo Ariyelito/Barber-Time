@@ -10,6 +10,10 @@ export default function (state = initialState, action) {
     // let array;
     switch (action.type) {
         case FAKE_ACTION:
+            return {
+                ...state,
+                list: state.list.concat(action.payload)
+            }
     }
     return state;
 }
