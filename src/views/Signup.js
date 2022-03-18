@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 
 
-const App = () => {
+export const Signup = () => {
   return (
     <View>
         <Text>Sign up!</Text>
@@ -10,4 +10,4 @@ const App = () => {
   );
 }
 
-export default App;
+

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 
 
-const ListBarbers = () => {
+export const ListBarbers = ({ navigation }) => {
   return (
     <View>
         <Text>Choose a barber :</Text>
@@ -10,4 +10,4 @@ const ListBarbers = () => {
   );
 }
 
-export default ListBarbers;
+
