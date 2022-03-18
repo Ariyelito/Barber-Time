@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { View, Image ,  Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { CustomButton } from './../components/CustomButton';
+import { containerStyle } from '../components/variables';
 
 
-export const Home = ({ navigation }) => {
+
+ const Home = ({ navigation }) => {
   
   return (
     <View style={styles.container}>
@@ -27,9 +29,7 @@ export const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
-    backgroundColor:'#AEB6BF',
-    flex:1,
+    ...containerStyle , 
   } , 
   logo:{
     width:200,
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
     
   },
 })
-
+export default Home;

@@ -1,18 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView , StyleSheet } from 'react-native';
+import { containerStyle } from '../components/variables';
 
 
-export const Login = () => {
+ const Login = () => {
   return (
-    <ScrollView>
-        <View>
+    <View style={styles.container}>
+<ScrollView >
+        <View >
             <Text>Barber Time</Text>
         </View>
         <View>
             <Text>Login</Text>
         </View>
     </ScrollView>
+    </View>
+    
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    ...containerStyle,
+  } , 
+  logo:{
+    width:200,
+    height : 200,
+  },
+  button:{
+    
+  },
+})
 
+export default Login;
