@@ -8,6 +8,7 @@ import store from './src/redux/store';
 import { Home } from './src/views/Home';
 import { Login } from './src/views/Login';
 import { Signup } from './src/views/Signup';
+import { ListBarbers } from './src/views/ListBarbers';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,11 @@ const App = () => {
             <Stack.Screen
             name="Signup"
             component={Signup}
+            options={{}} />
+            
+            <Stack.Screen
+            name="ListBarbers"
+            component={ListBarbers}
             options={{}} />
         </Stack.Navigator>
       </NavigationContainer>
