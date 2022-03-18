@@ -3,7 +3,7 @@ import { View, Image ,  Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { customButtonBackground, customButtonText } from './colors';
 
 
-export const CustomButton = ({ text , onPress }) => {
+const CustomButton = ({ text , onPress }) => {
   
   return (
     <View style={styles.container}>
@@ -36,3 +36,4 @@ const styles = StyleSheet.create({
   },
 })
 
+export default CustomButton;
