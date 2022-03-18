@@ -28,12 +28,12 @@ export const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    justifyContent: "center"
+    backgroundColor:'#AEB6BF',
+    flex:1,
   } , 
   logo:{
     width:200,
     height : 200,
-    marginHorizontal:40,
   },
   button:{
     
