@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Image ,  Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { customButtonBackground, customButtonText } from './colors';
 
 
 export const CustomButton = ({ text , onPress }) => {
@@ -21,14 +22,14 @@ const styles = StyleSheet.create({
   
   button:{
     elevation: 8,
-    backgroundColor: "#2C3E50",
+    backgroundColor: customButtonBackground,
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 12,
   },
   text : {
     fontSize: 18,
-    color: "#fff",
+    color: customButtonText,
     fontWeight: "bold",
     alignSelf: "center",
     textTransform: "uppercase"

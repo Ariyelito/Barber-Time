@@ -1,5 +1,7 @@
+import { mainBackgroundColor } from "./colors";
+
 export const containerStyle = {
     alignItems: "center",
-    backgroundColor:'#AEB6BF',
+    backgroundColor:mainBackgroundColor,
     flex:1,
 };

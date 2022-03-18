@@ -11,6 +11,7 @@ import  Signup  from './src/views/Signup';
 import  ListBarbers  from './src/views/ListBarbers';
 import Home from './src/views/Home';
 import Login from './src/views/Login';
+import { headerTintColor, navigationHeaderColor } from './src/components/colors';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,9 +21,9 @@ const App = () => {
       <NavigationContainer  >
         <Stack.Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#5D6D7E',
+          backgroundColor: navigationHeaderColor,
         },
-        headerTintColor: '#fff',
+        headerTintColor: headerTintColor,
         headerTitleStyle: {
           fontWeight: 'bold',
         },

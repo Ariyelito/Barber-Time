@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView , StyleSheet } from 'react-native';
+import { View, Text, ScrollView , StyleSheet , TextInput } from 'react-native';
 import { containerStyle } from '../components/variables';
 
 
  const Login = () => {
   return (
     <View style={styles.container}>
-<ScrollView >
+    <ScrollView >
         <View >
             <Text>Barber Time</Text>
-        </View>
-        <View>
+       
+      <TextInput style={styles.input} placeholder='Email'></TextInput>
+      <TextInput placeholder='Password'></TextInput>
+        
             <Text>Login</Text>
         </View>
     </ScrollView>
@@ -23,13 +25,10 @@ const styles = StyleSheet.create({
   container: {
     ...containerStyle,
   } , 
-  logo:{
-    width:200,
-    height : 200,
-  },
-  button:{
-    
-  },
+  input:{
+   
+  }
+
 })
 
 export default Login;
