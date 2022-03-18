@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Image ,  Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { CustomButton } from './../components/CustomButton';
 
 
 export const Home = ({ navigation }) => {
+  
   return (
     <View style={styles.container}>
-      <View>
-        {/* add logo here */}
+       
+       <Image style={styles.logo} source={require('./../../images/logo.png')}></Image>
         <Text>Barber Time</Text>
-      </View>
+      
       <TouchableOpacity
         onPress={() => { navigation.navigate('ListBarbers')}}
       >
-        <Text>Trouver un barbier!</Text>
+        <Text></Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => { navigation.navigate('Login') }}
-      >
-        <Text>Connectez-vous en tant que barbier</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => { navigation.navigate('Signup') }}
-      >
-        <Text>Créez un compte</Text>
-      </TouchableOpacity>
+      <CustomButton text={'Trouver un barbier!'} onPress={()=>{}}></CustomButton>
+      <CustomButton text={'Connectez-vous en tant que barbier'} onPress={() => { navigation.navigate('Login') }}></CustomButton>
+      <CustomButton text={'Créez un compte'} onPress={() => { navigation.navigate('Signup') }}></CustomButton>
+     
+     
     </View>
   );
 }
@@ -32,6 +29,14 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center"
-  }
+  } , 
+  logo:{
+    width:200,
+    height : 200,
+    marginHorizontal:40,
+  },
+  button:{
+    
+  },
 })
 
