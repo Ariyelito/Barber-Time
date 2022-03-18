@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 
 
-const App = () => {
+const EditServices = () => {
   return (
     <View>
         <Text>Edit your services :</Text>
@@ -10,4 +10,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default EditServices;

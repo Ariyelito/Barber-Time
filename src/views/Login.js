@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 
 
-const App = () => {
+const Login = () => {
   return (
     <ScrollView>
         <View>
@@ -12,4 +12,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default Login;

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 
-const App = () => {
+const DefaultComponant = () => {
   return (
     <View>
         <Text>Componant template!</Text>
@@ -10,4 +10,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default DefaultComponant;
