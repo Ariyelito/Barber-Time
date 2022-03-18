@@ -38,7 +38,7 @@ export  const getAllUsers =  (callBack)=>{
             "SELECT * FROM users;",
             [],
             (tx,results) => {
-                console.log('hello from the other side : '+ results.rows.length);
+                
                 var len = results.rows.length;
                 for (let i = 0; i < len; i++) {
                     let row = results.rows.item(i); 
