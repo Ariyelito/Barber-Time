@@ -5,10 +5,12 @@ import { Provider } from 'react-redux';
 import store from './src/redux/store';
 
 // views
-import { Home } from './src/views/Home';
-import { Login } from './src/views/Login';
-import { Signup } from './src/views/Signup';
-import { ListBarbers } from './src/views/ListBarbers';
+
+
+import  Signup  from './src/views/Signup';
+import  ListBarbers  from './src/views/ListBarbers';
+import Home from './src/views/Home';
+import Login from './src/views/Login';
 
 const Stack = createNativeStackNavigator();
 
