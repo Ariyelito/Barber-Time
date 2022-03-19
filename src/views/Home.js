@@ -29,7 +29,7 @@ import { containerStyle } from '../components/variables';
 
 const styles = StyleSheet.create({
   container: {
-    ...containerStyle , 
+    ...containerStyle ,
   } , 
   logo:{
     width:200,
