@@ -5,7 +5,7 @@ import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
 import { getAllUsers } from '../manger/SqlManger';
 
- const Login = () => {
+ const Login = ({navigation}) => {
 
   const [email , setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,11 +13,13 @@ import { getAllUsers } from '../manger/SqlManger';
   /// NOT DONE YET
   const login = ()=>{
     if(email !='' && password !=''){
+
       getAllUsers((tab)=>{
-        let userFound = tab.filter(elem=> elem.email != email && elem.password !=password);
-        if(userFound.lenght != 0){
-          Alert.alert('1');
-        } else  Alert.alert('2');
+        let userFound = tab.filter(elem => elem.email == email && elem.password == password );
+        if(userFound.length != 0){
+          navigation.navigate('ProfileBarber');
+        } else  Alert.alert('User not found');
+
       });
     } else Alert.alert('Email and password are not valide');
   };

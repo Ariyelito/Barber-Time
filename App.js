@@ -12,6 +12,7 @@ import  ListBarbers  from './src/views/ListBarbers';
 import Home from './src/views/Home';
 import Login from './src/views/Login';
 import { headerTintColor, navigationHeaderColor } from './src/components/colors';
+import ProfileBarber from './src/views/ProfileBarber';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +45,11 @@ const App = () => {
             <Stack.Screen
             name="ListBarbers"
             component={ListBarbers}
+            options={{}} />
+             
+             <Stack.Screen
+            name="ProfileBarber"
+            component={ProfileBarber}
             options={{}} />
         </Stack.Navigator>
       </NavigationContainer>
