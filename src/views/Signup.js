@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput , Alert } from 'react-native';
 import { textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
-import {  insertBarber , getAll, dropDatabase, insertAppoinment } from '../manger/SqlManger';
+import {  insertBarber , getAll, dropDatabase, insertAppoinment, barberExist } from '../manger/SqlManger';
 
 
 const Signup = ({navigation}) => {
@@ -19,9 +19,14 @@ const Signup = ({navigation}) => {
     if(email !='' && password !=''  ){
       if( adress !=''){
         if(name !=''){
-          insertBarber(email , password , adress);
-          Alert.alert('Barber was added'  );
-          navigation.navigate('Home');
+          barberExist({name:name,email:email ,adress:adress},exist=>{
+            if(!exist){
+              insertBarber(name , email , password , adress);
+              Alert.alert('Barber was added'  );
+              navigation.navigate('Home');
+            } else Alert.alert('Barber already exist');
+          });
+          
         } else Alert.alert('name required');
         
       } else Alert.alert('Address required');

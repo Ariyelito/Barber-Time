@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
 import { textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
-import { getAll } from '../manger/SqlManger';
+import { barberExistOKConnection, getAll } from '../manger/SqlManger';
 
 const Login = ({ navigation }) => {
 
@@ -13,13 +13,11 @@ const Login = ({ navigation }) => {
   /// NOT DONE YET
   const login = () => {
     if (email != '' && password != '') {
-      getAll('barbers',(tab) => {
-        let userFound = tab.filter(elem => elem.email == email && elem.password == password);
-        if (userFound.length != 0) {
+      barberExistOKConnection({email:email,password:password}, (exist , userFound)=> {
+        if(exist){
           navigation.navigate('ProfileBarber' , {barber:userFound[0]});
-        } else Alert.alert('User not found');
-
-      });
+        } else  Alert.alert('User not found');
+      })
     } else Alert.alert('Email and password are not valide');
   };
   return (

@@ -9,7 +9,30 @@ const db = SQLite.openDatabase(
   ()=>console.log('cannot connect dataBase')
   );
   
-
+export const barberExistOKConnection = (barber , callBack)=>{
+    getAll('barbers' , (tab)=>{
+        let userFound = tab.filter(elem => elem.email == barber.email && elem.password == barber.password);
+        if (userFound.length != 0) {
+         callBack( true , userFound);
+        
+        } else
+        callBack( false);
+        
+    });
+    
+};
+export const barberExist = (barber , callBack)=>{
+    getAll('barbers' , (tab)=>{
+        let userFound = tab.filter(elem =>elem.name == barber.name && elem.email == barber.email && elem.adress == barber.adress);
+        if (userFound.length != 0) {
+         callBack( true );
+        
+        } else
+        callBack( false);
+        
+    });
+    
+};
 export const insertBarber = ( ...params )=>{
     console.log(params);
     db.transaction((tx)=>{
