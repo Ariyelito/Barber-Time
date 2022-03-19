@@ -6,10 +6,10 @@ import { containerStyle } from '../components/variables';
 
 
 
-const BarberLocation = ({route}) => {
+const BarberLocation = ({route , navigation}) => {
     const barber = route.params.barber;
 
-    const tokyoRegion = {
+    const ahuntsicRegion = {
         latitude: 45.552198625534196,
           longitude: -73.64205341789872,
           latitudeDelta: 0.0922,
@@ -21,13 +21,13 @@ const BarberLocation = ({route}) => {
 
         <MapView
         style={styles.map}
-        initialRegion={tokyoRegion}
+        initialRegion={ahuntsicRegion}
       >
-           <MapView.Marker coordinate={tokyoRegion} />
+           <MapView.Marker coordinate={ahuntsicRegion} />
       </MapView>
 
         <View style={styles.btnStyle}>
-        <CustomButton text={'Book an appoinment with ' + barber.name} onPress={()=>{}}></CustomButton>
+        <CustomButton text={'Book an appoinment with ' + barber.name} onPress={()=>{navigation.navigate('Booking' , {barber:barber});}}></CustomButton>
         </View>
     </View>
   );
