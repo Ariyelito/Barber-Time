@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput , Alert } from 'react-native';
 import { textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
-import {  insertBarber , getAll, dropDatabase } from '../manger/SqlManger';
+import {  insertBarber , getAll, dropDatabase, insertAppoinment } from '../manger/SqlManger';
 
 
 const Signup = ({navigation}) => {
@@ -13,7 +13,17 @@ const Signup = ({navigation}) => {
   const [adress , setAdress] = useState('');
 
   const addBarber = ()=>{
-  dropDatabase('barbers');
+  
+      insertAppoinment('test' , '2020-02-02' ,1);
+      console.log('Apps table : ');
+      getAll('appoinments' , tab=>console.log(tab));
+
+      console.log('Barbers table : ');
+
+      getAll('barbers' , tab=>console.log(tab));
+      dropDatabase('barbers');
+      dropDatabase('appoinments');
+      
     if(email !='' && password !=''  ){
       if( adress !=''){
         insertBarber(email , password , adress);

@@ -38,17 +38,19 @@ export const insertBarber = ( ...params )=>{
 export const insertAppoinment = ( ...params )=>{
     console.log(params);
     db.transaction((tx)=>{
+       
         tx.executeSql(
             `CREATE TABLE IF NOT EXISTS appoinments (
-                barberId INTEGER PRIMARY KEY AUTOINCREMENT ,
+                appoinmentId INTEGER PRIMARY KEY AUTOINCREMENT ,
                 emailClt varchar(255) ,
                 date varchar(255),
                 barberId varchar(255),
                 FOREIGN KEY (barberId) REFERENCES barbers(barberId)
-
+               
                     );`
         )
     });
+     db.executeSql('PRAGMA foreign_keys = ON');
     db.transaction((tx)=>{
         tx.executeSql(
             `INSERT INTO  appoinments (emailClt , date , barberId)  VALUES ( ?,?,? );`,
