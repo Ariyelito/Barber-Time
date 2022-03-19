@@ -21,5 +21,13 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+
+      <!-- for google map -->
+      <meta-data
+     android:name="com.google.android.geo.API_KEY"
+     android:value="AIzaSyCBIDvy3u5m6SDR918cUK5k3l1GqqhP2Co"/> 
+     
+     <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+     <uses-permission android:name="android.permission.INTERNET" />
     </application>
 </manifest>

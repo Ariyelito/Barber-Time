@@ -22,7 +22,7 @@ import BarberListItem from './../components/BarberListItem';
 
   const renderItem = ({item}) =>{
     return( 
-     <BarberListItem name={item.name} adress={item.adress} onPress={()=>{}}></BarberListItem>
+     <BarberListItem name={item.name} adress={item.adress} onPress={()=>{navigation.navigate('BarberDetail' , {barber:item});}}></BarberListItem>
        
     );
 };

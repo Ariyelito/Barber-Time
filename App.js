@@ -13,6 +13,8 @@ import Home from './src/views/Home';
 import Login from './src/views/Login';
 import { headerTintColor, navigationHeaderColor } from './src/components/colors';
 import ProfileBarber from './src/views/ProfileBarber';
+import BarberDetail from './src/views/BarberDetail';
+import BarberLocation from './src/views/BarberLocation';
 
 const Stack = createNativeStackNavigator();
 
@@ -50,6 +52,14 @@ const App = () => {
              <Stack.Screen
             name="ProfileBarber"
             component={ProfileBarber}
+            options={{}} /> 
+            <Stack.Screen
+            name="BarberDetail"
+            component={BarberDetail}
+            options={{}} />
+             <Stack.Screen
+            name="BarberLocation"
+            component={BarberLocation}
             options={{}} />
         </Stack.Navigator>
       </NavigationContainer>

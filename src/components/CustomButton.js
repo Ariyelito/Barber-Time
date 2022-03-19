@@ -6,7 +6,7 @@ import { customButtonBackground, customButtonText } from './colors';
 const CustomButton = ({ text , onPress }) => {
   
   return (
-    <View style={styles.container}>
+    <View style={ styles.container}>
       <TouchableOpacity onPress={()=>onPress()} style={styles.button}>
           <Text style={styles.text}>{text}</Text>
       </TouchableOpacity>
