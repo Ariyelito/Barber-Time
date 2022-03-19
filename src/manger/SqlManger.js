@@ -10,55 +10,88 @@ const db = SQLite.openDatabase(
   );
   
 
-export const insertUser = ( ...params)=>{
+export const insertBarber = ( ...params )=>{
     console.log(params);
     db.transaction((tx)=>{
         tx.executeSql(
-            "CREATE TABLE IF NOT EXISTS users ( userId INTEGER PRIMARY KEY AUTOINCREMENT , email varchar(255) , password varchar(255) );"
+            `CREATE TABLE IF NOT EXISTS barbers (
+                barberId INTEGER PRIMARY KEY AUTOINCREMENT ,
+                email varchar(255) ,
+                password varchar(255),
+                adress varchar(255)
+
+                    );`
         )
     });
     db.transaction((tx)=>{
         tx.executeSql(
-            `INSERT INTO  users (email , password)  VALUES ( ?,? );`,
+            `INSERT INTO  barbers (email , password , adress)  VALUES ( ?,?,? );`,
             params,
             (tx,res) => {
              console.log('insert was good'); 
-            } , (err)=>{console.log(err);}
+            } , (err)=>{console.log(err); }
         )
     });
      
 };
 
-export  const getAllUsers =  (callBack)=>{
+export const insertAppoinment = ( ...params )=>{
+    console.log(params);
+    db.transaction((tx)=>{
+        tx.executeSql(
+            `CREATE TABLE IF NOT EXISTS appoinments (
+                barberId INTEGER PRIMARY KEY AUTOINCREMENT ,
+                emailClt varchar(255) ,
+                date varchar(255),
+                barberId varchar(255),
+                FOREIGN KEY (barberId) REFERENCES barbers(barberId)
+
+                    );`
+        )
+    });
+    db.transaction((tx)=>{
+        tx.executeSql(
+            `INSERT INTO  appoinments (emailClt , date , barberId)  VALUES ( ?,?,? );`,
+            params,
+            (tx,res) => {
+             console.log('insert was good'); 
+            } , (err)=>{console.log(err); }
+        )
+    });
+     
+};
+
+export  const getAll =  (table,callBack)=>{
     
-    const tabUsers = [];
+    const tab = [];
 
     db.transaction((tx)=>{
         tx.executeSql(
-            "SELECT * FROM users;",
+            `SELECT * FROM ${table};`,
             [],
             (tx,results) => {
                 
                 var len = results.rows.length;
                 for (let i = 0; i < len; i++) {
                     let row = results.rows.item(i); 
-               tabUsers.push(row);
+                    tab.push(row);
            
           }
-          callBack(tabUsers);
+          callBack(tab);
   
             }
         )
     }); 
    
-    return tabUsers;
+   
     
 };
 
-export const dropDatabaseUser = ()=>{
+
+export const dropDatabase= (table)=>{
     db.transaction((tx)=>{
         tx.executeSql(
-            "drop table users;",
+            `drop table ${table};`,
             [],
             (tx,results) => {
            console.log('database dropped');

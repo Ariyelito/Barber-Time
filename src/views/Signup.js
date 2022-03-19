@@ -3,19 +3,24 @@ import { View, Text, StyleSheet, TextInput , Alert } from 'react-native';
 import { textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
-import { dropDatabaseUser, getAllUsers, insertUser } from '../manger/SqlManger';
+import {  insertBarber , getAll, dropDatabase } from '../manger/SqlManger';
 
 
 const Signup = ({navigation}) => {
 
   const [email , setEmail] = useState('');
   const [password , setPassword] = useState('');
+  const [adress , setAdress] = useState('');
 
-  const addUser = ()=>{
-    if(email !='' && password !=''){
-      insertUser(email , password);
-      Alert.alert('User was added'  );
-      navigation.navigate('Home');
+  const addBarber = ()=>{
+  dropDatabase('barbers');
+    if(email !='' && password !=''  ){
+      if( adress !=''){
+        insertBarber(email , password , adress);
+        Alert.alert('Barber was added'  );
+        navigation.navigate('Home');
+      } else Alert.alert('Address required');
+      
    
 
     } else Alert.alert('Email and password are not valide');
@@ -28,8 +33,9 @@ const Signup = ({navigation}) => {
 
       <TextInput style={styles.input} placeholder='Email' onChangeText={setEmail}></TextInput>
       <TextInput style={styles.input} placeholder='Password' onChangeText={setPassword}></TextInput>
+      <TextInput style={styles.input} placeholder='Adress' onChangeText={setAdress}></TextInput>
 
-      <CustomButton text={'Sign up'} onPress={() => { addUser(); }}></CustomButton>
+      <CustomButton text={'Sign up'} onPress={() => { addBarber(); }}></CustomButton>
 
 
     </View>

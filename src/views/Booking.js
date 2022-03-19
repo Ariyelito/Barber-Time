@@ -53,7 +53,7 @@ const Booking = ({ route, navigation }) => {
     const [email, setEmail] = useState('');
 
     const currentDate = new Date().toISOString().slice(0, 10)
-    console.log(currentDate);
+    
     return (
       <View style={styles.container}>
         <Text>Book your appoinment here with {barber.name} !</Text>
