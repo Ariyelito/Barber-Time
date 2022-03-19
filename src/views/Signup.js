@@ -19,6 +19,7 @@ const Signup = ({navigation}) => {
     if(email !='' && password !=''  ){
       if( adress !=''){
         if(name !=''){
+          
           barberExist({name:name,email:email ,adress:adress},exist=>{
             if(!exist){
               insertBarber(name , email , password , adress);
