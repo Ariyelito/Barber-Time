@@ -16,7 +16,7 @@ const Login = ({ navigation }) => {
       getAll('barbers',(tab) => {
         let userFound = tab.filter(elem => elem.email == email && elem.password == password);
         if (userFound.length != 0) {
-          navigation.navigate('ProfileBarber');
+          navigation.navigate('ProfileBarber' , {barber:userFound[0]});
         } else Alert.alert('User not found');
 
       });

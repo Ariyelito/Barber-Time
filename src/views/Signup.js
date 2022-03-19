@@ -8,16 +8,22 @@ import {  insertBarber , getAll, dropDatabase, insertAppoinment } from '../mange
 
 const Signup = ({navigation}) => {
 
+  const [name , setName] = useState('');
+
   const [email , setEmail] = useState('');
   const [password , setPassword] = useState('');
   const [adress , setAdress] = useState('');
 
   const addBarber = ()=>{
+   
     if(email !='' && password !=''  ){
       if( adress !=''){
-        insertBarber(email , password , adress);
-        Alert.alert('Barber was added'  );
-        navigation.navigate('Home');
+        if(name !=''){
+          insertBarber(email , password , adress);
+          Alert.alert('Barber was added'  );
+          navigation.navigate('Home');
+        } else Alert.alert('name required');
+        
       } else Alert.alert('Address required');
       
    
@@ -30,6 +36,7 @@ const Signup = ({navigation}) => {
 
       <Text>Barber Time</Text>
 
+      <TextInput style={styles.input} placeholder='Name' onChangeText={setName}></TextInput>
       <TextInput style={styles.input} placeholder='Email' onChangeText={setEmail}></TextInput>
       <TextInput style={styles.input} placeholder='Password' onChangeText={setPassword}></TextInput>
       <TextInput style={styles.input} placeholder='Adress' onChangeText={setAdress}></TextInput>

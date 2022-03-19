@@ -16,6 +16,7 @@ export const insertBarber = ( ...params )=>{
         tx.executeSql(
             `CREATE TABLE IF NOT EXISTS barbers (
                 barberId INTEGER PRIMARY KEY AUTOINCREMENT ,
+                name varchar(255) ,
                 email varchar(255) ,
                 password varchar(255),
                 adress varchar(255)
@@ -25,7 +26,7 @@ export const insertBarber = ( ...params )=>{
     });
     db.transaction((tx)=>{
         tx.executeSql(
-            `INSERT INTO  barbers (email , password , adress)  VALUES ( ?,?,? );`,
+            `INSERT INTO  barbers (name , email , password , adress)  VALUES (?,?,?,? );`,
             params,
             (tx,res) => {
              console.log('insert was good'); 
