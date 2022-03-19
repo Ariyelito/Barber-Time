@@ -41,7 +41,7 @@ const Booking = ({ route, navigation }) => {
 
   //Fetch holidays
   const [holidays , setHolidays] = useState([]);
-  
+  const [daySelected , setDaySelected] = useState({});
     const getHolidays = ()=>{
       fetch('https://date.nager.at/api/v2/publicholidays/2022/CA/')
       .then(resp=>resp.json())
@@ -54,6 +54,7 @@ const Booking = ({ route, navigation }) => {
       holidays.forEach(element => {
         dates[element.date] = {disabled:true,disableTouchEvent:true ,selected:true,selectedColor:'red'};
       });
+      dates[daySelected]=   {selected:true , selectedColor:'#95C9FF', disableTouchEvent:true ,marked:true};
       return dates;
     }
 
@@ -86,7 +87,7 @@ const Booking = ({ route, navigation }) => {
           markedDates={markedDates()}
           maxDate='2023-01-01'
           enableSwipeMonths={true}
-          onDayPress={date => { console.log(date) }}
+          onDayPress={date => { console.log(date); setDaySelected(date.dateString) }}
           
         ></Calendar>
         <CustomButton text={'next'} onPress={() => { navigation.navigate('TimeAvl', { barber: barber }); }}></CustomButton>
