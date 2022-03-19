@@ -13,17 +13,6 @@ const Signup = ({navigation}) => {
   const [adress , setAdress] = useState('');
 
   const addBarber = ()=>{
-  
-      insertAppoinment('test' , '2020-02-02' ,1);
-      console.log('Apps table : ');
-      getAll('appoinments' , tab=>console.log(tab));
-
-      console.log('Barbers table : ');
-
-      getAll('barbers' , tab=>console.log(tab));
-      dropDatabase('barbers');
-      dropDatabase('appoinments');
-      
     if(email !='' && password !=''  ){
       if( adress !=''){
         insertBarber(email , password , adress);
