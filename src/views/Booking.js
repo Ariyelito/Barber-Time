@@ -39,6 +39,24 @@ LocaleConfig.defaultLocale = 'fr';
 
 const Booking = ({ route, navigation }) => {
 
+  //Fetch holidays
+  const [holidays , setHolidays] = useState([]);
+  
+    const getHolidays = ()=>{
+      fetch('https://date.nager.at/api/v2/publicholidays/2022/CA/')
+      .then(resp=>resp.json())
+      .then(json=>setHolidays(json));
+    };
+    useEffect(()=>{getHolidays()},[]);
+
+    const markedDates = ()=>{
+      let dates = {};
+      holidays.forEach(element => {
+        dates[element.date] = {disabled:true,disableTouchEvent:true ,selected:true,selectedColor:'red'};
+      });
+      return dates;
+    }
+
   const TimeAvl = () => {
 
     return (
@@ -54,6 +72,7 @@ const Booking = ({ route, navigation }) => {
 
     const currentDate = new Date().toISOString().slice(0, 10)
     
+  
     return (
       <View style={styles.container}>
         <Text>Book your appoinment here with {barber.name} !</Text>
@@ -64,9 +83,11 @@ const Booking = ({ route, navigation }) => {
           style={styles.calendar}
           current={currentDate}
           minDate={currentDate}
+          markedDates={markedDates()}
           maxDate='2023-01-01'
           enableSwipeMonths={true}
           onDayPress={date => { console.log(date) }}
+          
         ></Calendar>
         <CustomButton text={'next'} onPress={() => { navigation.navigate('TimeAvl', { barber: barber }); }}></CustomButton>
       </View>
@@ -100,6 +121,7 @@ const Booking = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     ...containerStyle,
+ 
   },
   input: {
     alignSelf: 'stretch',
@@ -113,6 +135,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   calendar: {
+   
   },
 
 })
