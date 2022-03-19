@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
 import { textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
-import { getAllUsers } from '../manger/SqlManger';
+import { getAll } from '../manger/SqlManger';
 
 const Login = ({ navigation }) => {
 
@@ -13,7 +13,7 @@ const Login = ({ navigation }) => {
   /// NOT DONE YET
   const login = () => {
     if (email != '' && password != '') {
-      getAllUsers((tab) => {
+      getAll('barbers',(tab) => {
         let userFound = tab.filter(elem => elem.email == email && elem.password == password);
         if (userFound.length != 0) {
           navigation.navigate('ProfileBarber');
