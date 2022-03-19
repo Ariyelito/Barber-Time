@@ -13,12 +13,8 @@ import { containerStyle } from '../components/variables';
        <Image style={styles.logo} source={require('./../../images/logo.png')}></Image>
         <Text>Barber Time</Text>
       
-      <TouchableOpacity
-        onPress={() => { navigation.navigate('ListBarbers')}}
-      >
-        <Text></Text>
-      </TouchableOpacity>
-      <CustomButton text={'Trouver un barbier!'} onPress={()=>{}}></CustomButton>
+     
+      <CustomButton text={'Trouver un barbier!'} onPress={()=>{navigation.navigate('ListBarbers')}}></CustomButton>
       <CustomButton text={'Connectez-vous en tant que barbier'} onPress={() => { navigation.navigate('Login') }}></CustomButton>
       <CustomButton text={'Créez un compte'} onPress={() => { navigation.navigate('Signup') }}></CustomButton>
      
