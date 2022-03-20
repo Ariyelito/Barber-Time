@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput , FlatList } from 'react-native';
 import { headerTintColor, navigationHeaderColor, textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import { containerStyle } from '../components/variables';
 
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import { Calendar } from 'react-native-calendars';
 
 import { LocaleConfig } from 'react-native-calendars';
 import CustomButton from '../components/CustomButton';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { getAll, getBarberDispo, insertAppoinment } from '../manger/SqlManger';
+import { dropDatabase, getAll, getBarberDispo, insertAppoinment } from '../manger/SqlManger';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,41 +41,53 @@ LocaleConfig.defaultLocale = 'fr';
 const Booking = ({ route, navigation }) => {
   const barber = route.params.barber;
   //Fetch holidays
-  const [holidays , setHolidays] = useState([]);
-  const [daySelected , setDaySelected] = useState({});
-    const getHolidays = ()=>{
-      fetch('https://date.nager.at/api/v2/publicholidays/2022/CA/')
-      .then(resp=>resp.json())
-      .then(json=>setHolidays(json));
-    };
-    useEffect(()=>{getHolidays()},[]);
+  const [holidays, setHolidays] = useState([]);
+  const [daySelected, setDaySelected] = useState({});
+  const getHolidays = () => {
+    fetch('https://date.nager.at/api/v2/publicholidays/2022/CA/')
+      .then(resp => resp.json())
+      .then(json => setHolidays(json));
+  };
+  useEffect(() => { getHolidays() }, []);
 
-    const markedDates = ()=>{
-      let dates = {};
-      holidays.forEach(element => {
-        dates[element.date] = {disabled:true,disableTouchEvent:true ,selected:true,selectedColor:'red'};
-      });
-      dates[daySelected]=   {selected:true , selectedColor:'#95C9FF', disableTouchEvent:true ,marked:true};
-      return dates;
-    }
+  const markedDates = () => {
+    let dates = {};
+    holidays.forEach(element => {
+      dates[element.date] = { disabled: true, disableTouchEvent: true, selected: true, selectedColor: 'red' };
+    });
+    dates[daySelected] = { selected: true, selectedColor: '#95C9FF', disableTouchEvent: true, marked: true };
+    return dates;
+  }
 
   const TimeAvl = () => {
-   // flat List pour les dispo
-   getBarberDispo(1,'2022-03-19' , (disp)=>console.log(disp));
+    getAll('appoinments' , tab=>console.log(tab));
+    const [data , setData] = useState([]);
+    useEffect(()=>{
+      getBarberDispo(barber.barberId, 'daySelected', (disp) => setData(disp));
+    },[]);
+    const renderItem = ({item})=>{
+      return(
+        <Text>{item}</Text>
+      );
+    }
+    // flat List pour les dispo
+    
     return (
-      <Text>hello</Text>
+      <FlatList
+      data={data}
+      renderItem={renderItem}
+      ></FlatList>
     );
   };
 
   const BookDate = () => {
-   
+
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
     const currentDate = new Date().toISOString().slice(0, 10)
-    
-  
+
     return (
       <View style={styles.container}>
         <Text>Book your appoinment here with {barber.name} !</Text>
@@ -90,7 +102,7 @@ const Booking = ({ route, navigation }) => {
           maxDate='2023-01-01'
           enableSwipeMonths={true}
           onDayPress={date => { console.log(date); setDaySelected(date.dateString) }}
-          
+
         ></Calendar>
         <CustomButton text={'next'} onPress={() => { navigation.navigate('TimeAvl', { barber: barber }); }}></CustomButton>
       </View>
@@ -124,7 +136,7 @@ const Booking = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     ...containerStyle,
- 
+
   },
   input: {
     alignSelf: 'stretch',
@@ -138,7 +150,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   calendar: {
-   
+
   },
 
 })
