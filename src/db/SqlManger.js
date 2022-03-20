@@ -1,5 +1,5 @@
 import SQLite from 'react-native-sqlite-storage';
-import { createTables } from '../db/SqlManger';
+import { createTables } from './db/SqlManger';
 
 
 const db = SQLite.openDatabase(
