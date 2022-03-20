@@ -20,20 +20,21 @@ const db = SQLite.openDatabase(
                 adress varchar(255)
 
                     );`
-        )
+        );
+        tx.executeSql(
+            `CREATE TABLE IF NOT EXISTS appoinments (
+                appoinmentId INTEGER PRIMARY KEY AUTOINCREMENT ,
+                emailClt varchar(255) ,
+                date varchar(255),
+                time varchar(255),
+                barberId varchar(255),
+                FOREIGN KEY (barberId) REFERENCES barbers(barberId)
+               
+                    );`
+        );
+    
     });
-    tx.executeSql(
-        `CREATE TABLE IF NOT EXISTS appoinments (
-            appoinmentId INTEGER PRIMARY KEY AUTOINCREMENT ,
-            emailClt varchar(255) ,
-            date varchar(255),
-            time varchar(255),
-            barberId varchar(255),
-            FOREIGN KEY (barberId) REFERENCES barbers(barberId)
-           
-                );`
-    )
-
+    
    
 };
 
