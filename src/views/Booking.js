@@ -9,6 +9,7 @@ import { LocaleConfig } from 'react-native-calendars';
 import CustomButton from '../components/CustomButton';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { getAll, getBarberDispo, insertAppoinment } from '../manger/SqlManger';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,7 +39,7 @@ LocaleConfig.defaultLocale = 'fr';
 
 
 const Booking = ({ route, navigation }) => {
-
+  const barber = route.params.barber;
   //Fetch holidays
   const [holidays , setHolidays] = useState([]);
   const [daySelected , setDaySelected] = useState({});
@@ -59,14 +60,15 @@ const Booking = ({ route, navigation }) => {
     }
 
   const TimeAvl = () => {
-
+   // flat List pour les dispo
+   getBarberDispo(1,'2022-03-19' , (disp)=>console.log(disp));
     return (
       <Text>hello</Text>
     );
   };
 
   const BookDate = () => {
-    const barber = route.params.barber;
+   
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');

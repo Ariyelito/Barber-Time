@@ -8,7 +8,29 @@ const db = SQLite.openDatabase(
  ()=>console.log('dataBase was success' ),
   ()=>console.log('cannot connect dataBase')
   );
-  
+
+
+   const tmpDispo = [
+       '10:00',
+       '10:30',
+       '11:00',
+       '11:30',
+       '12:00',
+       '12:30',
+       '1:00',
+       '1:30',
+       '2:00',
+       '2:30'
+   ];
+   export const getBarberDispo = (barberId , date , callBack) => {
+    let disp = tmpDispo;
+    getAll('appoinments' , tab=>{
+        let barberAppos = tab.filter(elem=>elem.barberId == barberId && date ==elem.date).map(elem=>elem.time);
+       disp= disp.filter(item=> !barberAppos.includes(item));
+       callBack(disp);
+    });
+   };
+
 export const barberExistOKConnection = (barber , callBack)=>{
     getAll('barbers' , (tab)=>{
         let userFound = tab.filter(elem => elem.email == barber.email && elem.password == barber.password);
@@ -68,6 +90,7 @@ export const insertAppoinment = ( ...params )=>{
                 appoinmentId INTEGER PRIMARY KEY AUTOINCREMENT ,
                 emailClt varchar(255) ,
                 date varchar(255),
+                time varchar(255),
                 barberId varchar(255),
                 FOREIGN KEY (barberId) REFERENCES barbers(barberId)
                
@@ -77,7 +100,7 @@ export const insertAppoinment = ( ...params )=>{
      db.executeSql('PRAGMA foreign_keys = ON');
     db.transaction((tx)=>{
         tx.executeSql(
-            `INSERT INTO  appoinments (emailClt , date , barberId)  VALUES ( ?,?,? );`,
+            `INSERT INTO  appoinments (emailClt , date, time , barberId)  VALUES ( ?,?,?,? );`,
             params,
             (tx,res) => {
              console.log('insert was good'); 
@@ -87,7 +110,7 @@ export const insertAppoinment = ( ...params )=>{
      
 };
 
-export  const getAll =  (table,callBack)=>{
+export  const getAll =  (table,callBack ,err)=>{
     
     const tab = [];
 
@@ -105,7 +128,7 @@ export  const getAll =  (table,callBack)=>{
           }
           callBack(tab);
   
-            }
+            } , (err) =>{console.log(err)}
         )
     }); 
    
