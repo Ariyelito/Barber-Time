@@ -1,4 +1,5 @@
 import SQLite from 'react-native-sqlite-storage';
+import { createTables } from '../db/SqlManger';
 
 
 const db = SQLite.openDatabase(
@@ -22,6 +23,36 @@ const db = SQLite.openDatabase(
        '2:00',
        '2:30'
    ];
+
+
+
+export const createTablesDb = ()=>{
+    db.transaction((tx)=>{
+        tx.executeSql(
+            `CREATE TABLE IF NOT EXISTS barbers (
+                barberId INTEGER PRIMARY KEY AUTOINCREMENT ,
+                name varchar(255) ,
+                email varchar(255) ,
+                password varchar(255),
+                adress varchar(255)
+
+                    );`
+        )
+        tx.executeSql(
+            `CREATE TABLE IF NOT EXISTS appoinments (
+                appoinmentId INTEGER PRIMARY KEY AUTOINCREMENT ,
+                emailClt varchar(255) ,
+                date varchar(255),
+                time varchar(255),
+                barberId varchar(255),
+                FOREIGN KEY (barberId) REFERENCES barbers(barberId)
+               
+                    );`
+        )
+    });
+};
+
+
    export const getBarberDispo = (barberId , date , callBack) => {
     let disp = tmpDispo;
     getAll('appoinments' , tab=>{

@@ -16,12 +16,13 @@ import ProfileBarber from './src/views/ProfileBarber';
 import BarberDetail from './src/views/BarberDetail';
 import BarberLocation from './src/views/BarberLocation';
 import Booking from './src/views/Booking';
-import { createTables, dropDatabase, insertAppoinment, insertBarber } from './src/db/SqlManger';
+
+import { createTablesDb } from './src/manger/SqlManger';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-
+createTablesDb();
   return (
     <Provider store={store} >
       <NavigationContainer  >
