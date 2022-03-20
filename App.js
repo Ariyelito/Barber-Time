@@ -17,10 +17,10 @@ import BarberView from './src/views/BarberView';
 import ChoosingPage from './src/views/ChoosingPage';
 
 import { createTablesDb } from './src/db/SqlManager';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
+
 
 const App = () => {
 
