@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,V } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
@@ -12,19 +12,25 @@ import ProfileBarber from './src/views/ProfileBarber';
 import BarberDetail from './src/views/BarberDetail';
 import BarberLocation from './src/views/BarberLocation';
 import Booking from './src/views/Booking';
+import ClientView from './src/views/ClientView';
+import BarberView from './src/views/BarberView';
+import ChoosingPage from './src/views/ChoosingPage';
 
 import { createTablesDb } from './src/db/SqlManager';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
-  
+
+
 createTablesDb();
-  return (
-    <Provider store={store} >
-      <NavigationContainer  >
-        <Stack.Navigator screenOptions={{
+ 
+
+return (
+  <NavigationContainer >
+      <Stack.Navigator screenOptions={{
         headerStyle: {
           backgroundColor: navigationHeaderColor,
         },
@@ -32,45 +38,52 @@ createTablesDb();
         headerTitleStyle: {
           fontWeight: 'bold',
         },
+      
       }}  >
           <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{}} />
+            name="ChoosingPage"
+            component={ChoosingPage}
+            options={{
+              headerShown: false
+
+            }} />
+           <Stack.Screen
+            name="ClientView"
+            component={ClientView}
+            options={{  headerShown: false
+            }} />
             <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{}} />
-            <Stack.Screen
-            name="Signup"
-            component={Signup}
-            options={{}} />
-            
-            <Stack.Screen
-            name="ListBarbers"
-            component={ListBarbers}
-            options={{}} />
-             
-             <Stack.Screen
-            name="ProfileBarber"
-            component={ProfileBarber}
-            options={{}} /> 
-            <Stack.Screen
-            name="BarberDetail"
-            component={BarberDetail}
-            options={{}} />
-             <Stack.Screen
-            name="BarberLocation"
-            component={BarberLocation}
-            options={{}} />
-            <Stack.Screen
-            name="Booking"
-            component={Booking}
-            options={{}} />
+            name="BarberView"
+            component={BarberView}
+            options={{
+              headerShown: false
+            }} /> 
+           
         </Stack.Navigator>
+    </NavigationContainer>
+  
+    
+);
+
+
+
+
+    /*
+    <Provider store={store} >
+      <NavigationContainer  >
+      <Tab.Navigator > 
+        
+      <Tab.Screen name="Client" component={ClientView}  />
+      <Tab.Screen name="Barber" component={BarberView} />
+
+      </Tab.Navigator>
+
+
+      
+       
       </NavigationContainer>
-    </Provider>
-  );
+    </Provider>*/
+ 
 }
 
 export default App;

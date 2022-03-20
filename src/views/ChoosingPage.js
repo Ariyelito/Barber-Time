@@ -6,16 +6,17 @@ import { createTables } from '../db/SqlManager';
 
 
 
- const Home = ({ navigation }) => {
+ const ChoosingPage = ({ navigation }) => {
  
   return (
     <View style={styles.container}>
        
        <Image style={styles.logo} source={require('./../../images/logo.png')}></Image>
-        <Text>Barber Time</Text>
+        <Text>Vous etes</Text>
       
      
-      <CustomButton text={'Trouver un barbier!'} onPress={()=>{navigation.navigate('ListBarbers')}}></CustomButton>
+      <CustomButton text={'Un client'} onPress={()=>{navigation.navigate('ClientView')}}></CustomButton>
+      <CustomButton text={'Un barbier'} onPress={() => { navigation.navigate('BarberView') }}></CustomButton>
      
      
      
@@ -35,4 +36,4 @@ const styles = StyleSheet.create({
     
   },
 })
-export default Home;
+export default ChoosingPage;

@@ -24,7 +24,7 @@ const Signup = ({navigation}) => {
             if(!exist){
               insertBarber(name , email , password , adress);
               Alert.alert('Barber was added'  );
-              navigation.navigate('Home');
+              navigation.navigate('HomeBarber');
             } else Alert.alert('Barber already exist');
           });
           
