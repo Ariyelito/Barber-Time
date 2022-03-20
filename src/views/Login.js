@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
 import { textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
-import { barberExistOKConnection, getAll } from '../manger/SqlManger';
+import { barberExistOKConnection, getAll } from '../db/SqlManger';
 
 const Login = ({ navigation }) => {
 

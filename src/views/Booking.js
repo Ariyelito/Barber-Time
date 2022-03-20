@@ -9,7 +9,7 @@ import { LocaleConfig } from 'react-native-calendars';
 import CustomButton from '../components/CustomButton';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { dropDatabase, getAll, getBarberDispo, insertAppoinment } from '../manger/SqlManger';
+import { dropDatabase, getAll, getBarberDispo, insertAppoinment } from '../db/SqlManger';
 
 const Stack = createNativeStackNavigator();
 

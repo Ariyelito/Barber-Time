@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput , Alert } from 'react-native';
 import { textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
-import {  insertBarber , getAll, dropDatabase, insertAppoinment, barberExist } from '../manger/SqlManger';
+import {  insertBarber , getAll, dropDatabase, insertAppoinment, barberExist } from '../db/SqlManger';
 
 
 const Signup = ({navigation}) => {

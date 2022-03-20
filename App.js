@@ -16,10 +16,16 @@ import ProfileBarber from './src/views/ProfileBarber';
 import BarberDetail from './src/views/BarberDetail';
 import BarberLocation from './src/views/BarberLocation';
 import Booking from './src/views/Booking';
+import { createTables, dropDatabase } from './src/db/SqlManger';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+
+  // dropDatabase('barbers')
+  // dropDatabase('appoinments')
+  createTables()
+
   return (
     <Provider store={store} >
       <NavigationContainer  >
