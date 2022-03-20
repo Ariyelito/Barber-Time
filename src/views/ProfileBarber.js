@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
-import { getAll } from '../db/SqlManger';
+import { getAll } from '../db/SqlManager';
 
 
 const ProfileBarber = ({route}) => {

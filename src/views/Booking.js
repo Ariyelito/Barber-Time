@@ -9,7 +9,7 @@ import { LocaleConfig } from 'react-native-calendars';
 import CustomButton from '../components/CustomButton';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { dropDatabase, getAll, getBarberDispo, insertAppoinment } from '../db/SqlManger';
+import { dropDatabase, getAll, getBarberDispo, insertAppoinment } from '../db/SqlManager';
 
 const Stack = createNativeStackNavigator();
 
@@ -63,7 +63,7 @@ const Booking = ({ route, navigation }) => {
     getAll('appoinments' , tab=>console.log(tab));
     const [data , setData] = useState([]);
     useEffect(()=>{
-      getBarberDispo(barber.barberId, 'daySelected', (disp) => setData(disp));
+      getBarberDispo(1, daySelected, (disp) => setData(disp));
     },[]);
     const renderItem = ({item})=>{
       return(

@@ -19,9 +19,11 @@ import Booking from './src/views/Booking';
 
 import { createTablesDb } from './src/manger/SqlManger';
 
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  
 createTablesDb();
   return (
     <Provider store={store} >
