@@ -2,23 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { View, Text , FlatList , StyleSheet } from 'react-native';
 import { containerStyle } from '../components/variables';
 import BarberListItem from './../components/BarberListItem';
+import {getAll} from './../db/SqlManager';
 
  const ListBarbers = ({ navigation }) => {
 
 
-  const DATA = [
-    {
-      id:1,
-      name : 'Hakam' , 
-      adress : '123 rue somewhere'
-    },
-    {
-      id:2,
-      name : 'Orlando' , 
-      adress : '123 avn in some place'
-    },
-  ]
+ 
+  const [data , setData] = useState([]);
 
+  useEffect(()=>{
+    getAll('barbers' , tab=>setData(tab) );
+  },[]);
+ 
 
   const renderItem = ({item}) =>{
     return( 
@@ -30,7 +25,7 @@ import BarberListItem from './../components/BarberListItem';
     <View style={styles.container}>
         <Text>Choose a barber :</Text>
         <FlatList style={styles.flatList}
-        data={DATA}
+        data={data}
         renderItem={renderItem}></FlatList>
     </View>
   );
