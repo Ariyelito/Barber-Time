@@ -10,7 +10,7 @@ const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  /// NOT DONE YET
+ 
   const login = () => {
     if (email != '' && password != '') {
       barberExistOKConnection({email:email,password:password}, (exist , userFound)=> {
