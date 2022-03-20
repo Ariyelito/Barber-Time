@@ -33,7 +33,7 @@ const db = SQLite.openDatabase(
            
                 );`
     )
-});
+
    
 };
 
