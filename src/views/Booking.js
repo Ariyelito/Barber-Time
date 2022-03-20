@@ -41,8 +41,9 @@ LocaleConfig.defaultLocale = 'fr';
 const Booking = ({ route, navigation }) => {
   const barber = route.params.barber;
   //Fetch holidays
+  const currentDate = new Date().toISOString().slice(0, 10)
   const [holidays, setHolidays] = useState([]);
-  const [daySelected, setDaySelected] = useState({});
+  const [daySelected, setDaySelected] = useState(currentDate);
   const getHolidays = () => {
     fetch('https://date.nager.at/api/v2/publicholidays/2022/CA/')
       .then(resp => resp.json())
@@ -53,7 +54,7 @@ const Booking = ({ route, navigation }) => {
   const markedDates = () => {
     let dates = {};
     holidays.forEach(element => {
-      dates[element.date] = { disabled: true, disableTouchEvent: true, selected: true, selectedColor: 'red' };
+      dates[element.date] = {  selected: true, selectedColor: 'red' };
     });
     dates[daySelected] = { selected: true, selectedColor: '#95C9FF', disableTouchEvent: true, marked: true };
     return dates;
@@ -86,7 +87,7 @@ const Booking = ({ route, navigation }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
-    const currentDate = new Date().toISOString().slice(0, 10)
+   
 
     return (
       <View style={styles.container}>
@@ -96,13 +97,13 @@ const Booking = ({ route, navigation }) => {
 
         <Calendar
           style={styles.calendar}
-          current={currentDate}
+          current={daySelected}
           minDate={currentDate}
           markedDates={markedDates()}
           maxDate='2023-01-01'
           enableSwipeMonths={true}
           onDayPress={date => { console.log(date); setDaySelected(date.dateString) }}
-
+         
         ></Calendar>
         <CustomButton text={'next'} onPress={() => { navigation.navigate('TimeAvl', { barber: barber }); }}></CustomButton>
       </View>
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   calendar: {
-
+  
   },
 
 })
