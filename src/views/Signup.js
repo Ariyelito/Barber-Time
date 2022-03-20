@@ -8,8 +8,6 @@ import {  insertBarber , getAll, dropDatabase, insertAppoinment, barberExist } f
 
 const Signup = ({navigation}) => {
 
-  insertBarber('orlando', 'o@gmail', '123', 'rue ahunstic');
-
   const [name , setName] = useState('');
 
   const [email , setEmail] = useState('');
