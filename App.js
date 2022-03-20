@@ -17,7 +17,7 @@ import BarberDetail from './src/views/BarberDetail';
 import BarberLocation from './src/views/BarberLocation';
 import Booking from './src/views/Booking';
 
-import { createTablesDb } from './src/db/SqlManger';
+import { createTablesDb } from './src/db/SqlManager';
 
 
 const Stack = createNativeStackNavigator();
