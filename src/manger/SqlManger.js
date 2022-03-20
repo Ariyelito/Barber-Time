@@ -114,17 +114,17 @@ export const insertAppoinment = ( ...params )=>{
     console.log(params);
     db.transaction((tx)=>{
        
-        tx.executeSql(
-            `CREATE TABLE IF NOT EXISTS appoinments (
-                appoinmentId INTEGER PRIMARY KEY AUTOINCREMENT ,
-                emailClt varchar(255) ,
-                date varchar(255),
-                time varchar(255),
-                barberId varchar(255),
-                FOREIGN KEY (barberId) REFERENCES barbers(barberId)
-               
-                    );`
-        )
+    tx.executeSql(
+        `CREATE TABLE IF NOT EXISTS appoinments (
+            appoinmentId INTEGER PRIMARY KEY AUTOINCREMENT ,
+            emailClt varchar(255) ,
+            date varchar(255),
+            time varchar(255),
+            barberId varchar(255),
+            FOREIGN KEY (barberId) REFERENCES barbers(barberId)
+            
+                );`
+    )
     });
      db.executeSql('PRAGMA foreign_keys = ON');
     db.transaction((tx)=>{
@@ -155,7 +155,7 @@ export  const getAll =  (table,callBack ,err)=>{
                     tab.push(row);
            
           }
-          callBack(tab);
+        callBack(tab);
   
             } , (err) =>{console.log(err)}
         )
