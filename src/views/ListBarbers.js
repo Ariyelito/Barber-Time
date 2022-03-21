@@ -1,30 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text , FlatList , StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { containerStyle } from '../components/variables';
 import BarberListItem from './../components/BarberListItem';
-import {getAll} from './../db/SqlManager';
+import { getAll } from './../db/SqlManager';
+import { useSelector, useDispatch } from 'react-redux';
+import * as clientActions from '../redux/actions/clientActions'
 
- const ListBarbers = ({ navigation }) => {
+const ListBarbers = ({ navigation }) => {
 
+  // const [data , setData] = useState([]);
 
- 
-  const [data , setData] = useState([]);
+  // useEffect(()=>{
+  //   getAll('barbers' , tab=>setData(tab) );
+  //   console.log("barber list :")
+  //   console.log(data)
+  // },[]);
 
-  useEffect(()=>{
-    getAll('barbers' , tab=>setData(tab) );
-  },[]);
- 
+  const dispatch = useDispatch();
 
-  const renderItem = ({item}) =>{
-    return( 
-     <BarberListItem name={item.name} adress={item.adress} onPress={()=>{navigation.navigate('BarberDetail' , {barber:item});}}></BarberListItem>
-       
+  useEffect(() => {
+    // redux actions : fetch barbers from db
+    getAll('barbers', tab => dispatch(clientActions.fetchBarbers(tab)));
+  }, [dispatch]);
+
+  const data = useSelector(state => state.client.barbers)
+  console.log("redux barber list :")
+  console.log(data)
+
+  const renderItem = ({ item }) => {
+    return (
+      <BarberListItem name={item.name} adress={item.adress} onPress={() => { navigation.navigate('BarberDetail', { barber: item }); }}></BarberListItem>
+
     );
-};
+  };
   return (
     <View style={styles.container}>
-        <Text>Choose a barber :</Text>
-        <FlatList style={styles.flatList}
+      <Text>Choose a barber :</Text>
+      <FlatList style={styles.flatList}
         data={data}
         renderItem={renderItem}></FlatList>
     </View>
@@ -33,10 +45,10 @@ import {getAll} from './../db/SqlManager';
 
 const styles = StyleSheet.create({
   container: {
-    ...containerStyle ,
-  } , 
-  flatList:{
-    alignSelf:'stretch',
+    ...containerStyle,
+  },
+  flatList: {
+    alignSelf: 'stretch',
   }
 })
 

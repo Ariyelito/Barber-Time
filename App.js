@@ -1,10 +1,10 @@
-import React, { useState,V } from 'react';
+import React, { useState, V } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
-import  Signup  from './src/views/Signup';
-import  ListBarbers  from './src/views/ListBarbers';
+import Signup from './src/views/Signup';
+import ListBarbers from './src/views/ListBarbers';
 import Home from './src/views/Home';
 import Login from './src/views/Login';
 import { headerTintColor, navigationHeaderColor } from './src/components/colors';
@@ -25,66 +25,66 @@ const Stack = createNativeStackNavigator();
 const App = () => {
 
 
-createTablesDb();
- 
+  createTablesDb();
 
-return (
-  <Provider store={store} >
-  <NavigationContainer >
-      <Stack.Navigator screenOptions={{
-        headerStyle: {
-          backgroundColor: navigationHeaderColor,
-        },
-        headerTintColor: headerTintColor,
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-        headerShown:false,
-      
-      }}  >
+
+  return (
+    <Provider store={store} >
+      <NavigationContainer >
+        <Stack.Navigator screenOptions={{
+          headerStyle: {
+            backgroundColor: navigationHeaderColor,
+          },
+          headerTintColor: headerTintColor,
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerShown: false,
+
+        }}  >
           <Stack.Screen
             name="ChoosingPage"
             component={ChoosingPage}
             options={{
-             headerShown:true,
+              headerShown: true,
             }} />
-           <Stack.Screen
+          <Stack.Screen
             name="ClientView"
             component={ClientView}
-            options={{  
+            options={{
             }} />
-            <Stack.Screen
+          <Stack.Screen
             name="BarberView"
             component={BarberView}
             options={{
-             
-            }} /> 
-           
+
+            }} />
+
         </Stack.Navigator>
-    </NavigationContainer>
-    </Provider>
-    
-);
-
-
-
-
-    /*
-  
-      <NavigationContainer  >
-      <Tab.Navigator > 
-        
-      <Tab.Screen name="Client" component={ClientView}  />
-      <Tab.Screen name="Barber" component={BarberView} />
-
-      </Tab.Navigator>
-
-
-      
-       
       </NavigationContainer>
-   */
+    </Provider>
+
+  );
+
+
+
+
+  /*
  
+    <NavigationContainer  >
+    <Tab.Navigator > 
+      
+    <Tab.Screen name="Client" component={ClientView}  />
+    <Tab.Screen name="Barber" component={BarberView} />
+
+    </Tab.Navigator>
+
+
+    
+     
+    </NavigationContainer>
+ */
+
 }
 
 export default App;

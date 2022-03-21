@@ -1,9 +1,11 @@
-export const FAKE_ACTION= 'FAKE_ACTION';
+export const FETCH_BARBERS = 'FETCH_BARBERS';
 
-export const fakeAction = () => {
-    return {
-        type: FAKE_ACTION,
-        payload: { id: 2, fake: 'fake action!' }
-        // payload: tasksDat
+export const fetchBarbers = (tab) => {
+    return dispatch => {
+        // add logic to get barbers
+        dispatch({
+            type: FETCH_BARBERS,
+            payload: { tab }
+        })
     }
 }
