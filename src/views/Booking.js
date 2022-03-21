@@ -70,7 +70,7 @@ const Booking = ({ route, navigation }) => {
 
     const pressHandler=(time)=>{
      
-      insertAppoinment(email,daySelected,time,barber.barberId);
+      insertAppoinment(email, nameCl , daySelected,time,barber.barberId);
     }
 
 
@@ -93,7 +93,7 @@ const Booking = ({ route, navigation }) => {
 
   const BookDate = () => {
 
-    const [name, setName] = useState('');
+    const [nameCl, setName] = useState('');
     const [email, setEmail] = useState('');   
 
     const next=()=>{
