@@ -16,7 +16,7 @@ import ClientView from './src/views/ClientView';
 import BarberView from './src/views/BarberView';
 import ChoosingPage from './src/views/ChoosingPage';
 
-import { createTablesDb } from './src/db/SqlManager';
+import { createTablesDb, dropDatabase, insertAppoinment } from './src/db/SqlManager';
 
 
 const Stack = createNativeStackNavigator();
@@ -24,8 +24,10 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
 
+ 
+createTablesDb();
 
-  createTablesDb();
+
 
 
   return (

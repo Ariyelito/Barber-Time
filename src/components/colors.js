@@ -1,9 +1,14 @@
-export const mainBackgroundColor = '#AEB6BF';
-export const navigationHeaderColor = '#5D6D7E';
+export const mainBackgroundColor = '#FFFCF7';
+//FFFCF7
+
+export const navigationHeaderColor = '#37196F';
 export const headerTintColor = '#fff';
-export const customButtonBackground = '#2C3E50';
+
+export const customButtonBackground = '#715dd3';
 export const customButtonText = '#fff';
-export const textInputBackgroundColor = '#D5D8DC';
-export const textInputBackBorderColor = '#2E4053';
-export const mainTextColor = 'black';
+
+export const textInputBackgroundColor = '#FFFCF7';
+export const textInputBackBorderColor = '#715dd3';
+
+export const mainTextColor = '#37196F';
 
