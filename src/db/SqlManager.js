@@ -134,7 +134,7 @@ export const insertAppoinment = ( ...params )=>{
      db.executeSql('PRAGMA foreign_keys = ON');
     db.transaction((tx)=>{
         tx.executeSql(
-            `INSERT INTO  appoinments (emailClt , date, time , barberId)  VALUES ( ?,?,?,? );`,
+            `INSERT INTO  appoinments (emailClt , nameClt, date, time , barberId)  VALUES (?, ?,?,?,? );`,
             params,
             (tx,res) => {
              console.log('insert was good'); 
