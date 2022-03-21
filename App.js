@@ -24,8 +24,8 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
 
- 
-createTablesDb();
+
+  createTablesDb();
 
 
 

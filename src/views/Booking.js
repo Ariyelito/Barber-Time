@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput , FlatList, Alert} from 'react-native';
+import { View, Text, StyleSheet, TextInput, FlatList, Alert } from 'react-native';
 import { headerTintColor, navigationHeaderColor, textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import { containerStyle, mainTextStyle } from '../components/variables';
 
@@ -11,6 +11,9 @@ import CustomButton from '../components/CustomButton';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { dropDatabase, getAll, getBarberDispo, insertAppoinment } from '../db/SqlManager';
+
+import { useSelector, useDispatch } from 'react-redux';
+import * as clientActions from '../redux/actions/clientActions'
 
 const Stack = createNativeStackNavigator();
 
@@ -43,8 +46,9 @@ const Booking = ({ route, navigation }) => {
   const barber = route.params.barber;
   //Fetch holidays
   const currentDate = new Date().toISOString().slice(0, 10)
-  const [holidays, setHolidays] = useState([]);
   const [daySelected, setDaySelected] = useState(currentDate);
+
+  const [holidays, setHolidays] = useState([]);
   const getHolidays = () => {
     fetch('https://date.nager.at/api/v2/publicholidays/2022/CA/')
       .then(resp => resp.json())
@@ -52,10 +56,26 @@ const Booking = ({ route, navigation }) => {
   };
   useEffect(() => { getHolidays() }, []);
 
+  const dispatch = useDispatch();
+
+  
+  // cant get correct payload
+  
+  // useEffect(() => {
+  //   dispatch(clientActions.fetchHolidays())
+  // }, [dispatch]);
+
+  // // redux (get) states
+  // const holidays = useSelector(state => state.client.holidays);
+  // console.log('redux holidays :')
+  // console.log(holidays)
+
+
+
   const markedDates = () => {
     let dates = {};
     holidays.forEach(element => {
-      dates[element.date] = {  selected: true, selectedColor: 'red' };
+      dates[element.date] = { selected: true, selectedColor: 'red' };
     });
     dates[daySelected] = { selected: true, selectedColor: '#95C9FF', disableTouchEvent: true, marked: true };
     return dates;
@@ -63,53 +83,70 @@ const Booking = ({ route, navigation }) => {
 
   const TimeAvl = () => {
     //getAll('appoinments' , tab=>console.log(tab));
-    const [data , setData] = useState([]);
-    useEffect(()=>{
+    const [data, setData] = useState([]);
+    useEffect(() => {
       getBarberDispo(1, daySelected, (disp) => setData(disp));
-    },[]);
+    }, []);
 
-    const pressHandler=(time)=>{
-     
-      insertAppoinment(email, nameCl , daySelected,time,barber.barberId);
+    const pressHandler = (time) => {
+
+      insertAppoinment(email, nameCl, daySelected, time, barber.barberId);
     }
 
 
-    const renderItem = ({item})=>{
-      return(
-        <ScheduleListItem  time={item} onPress={pressHandler}/>
+    const renderItem = ({ item }) => {
+      return (
+        <ScheduleListItem time={item} onPress={pressHandler} />
       );
     }
     // flat List pour les dispo
-    
+
     return (
       <FlatList
-      style={styles.flatList}
-      data={data}
-    // numColumns={3}    
-      renderItem={renderItem}
+        style={styles.flatList}
+        data={data}
+        // numColumns={3}    
+        renderItem={renderItem}
       ></FlatList>
     );
   };
 
   const BookDate = () => {
+    const dispatch = useDispatch();
 
-    const [nameCl, setName] = useState('');
-    const [email, setEmail] = useState('');   
+    // const [name, setName] = useState('');
+    // const [email, setEmail] = useState('');
+    const name = useSelector(state => state.client.name)
+    const email = useSelector(state => state.client.email)
 
-    const next=()=>{
-      if( name ==''){
+    const next = () => {
+      if (name == '') {
         Alert.alert("Veuillez entrez votre nom.");
-      }else if(email ==''){
+      } else if (email == '') {
         Alert.alert("Veuillez entrez votre émail.");
-      }else{
+      } else {
         navigation.navigate('TimeAvl', { barber: barber });
       }
     }
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Book your appoinment here with {barber.name} !</Text>
-        <TextInput style={styles.input} placeholder='Name' onChangeText={setName}></TextInput>
-        <TextInput style={styles.input} placeholder='Email' onChangeText={setEmail}></TextInput>
+        <TextInput 
+        style={styles.input} 
+        placeholder='Name' 
+        onChangeText={(value) => {
+          dispatch(clientActions.setName(value))
+        }}
+        >
+        </TextInput>
+        <TextInput 
+        style={styles.input} 
+        placeholder='Email' 
+        onChangeText={(value) => {
+          dispatch(clientActions.setEmail(value))
+        }}
+        >
+        </TextInput>
 
         <Calendar
           style={styles.calendar}
@@ -119,14 +156,14 @@ const Booking = ({ route, navigation }) => {
           maxDate='2023-01-01'
           enableSwipeMonths={true}
           onDayPress={date => { console.log(date); setDaySelected(date.dateString) }}
-         
+
         ></Calendar>
         <CustomButton text={'next'} onPress={next}></CustomButton>
       </View>
     );
   };
 
-  
+
 
 
   return (
@@ -168,9 +205,9 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   calendar: {
-  
+
   },
-  text:{
+  text: {
     ...mainTextStyle,
   }
 

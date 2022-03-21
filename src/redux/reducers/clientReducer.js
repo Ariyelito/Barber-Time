@@ -1,13 +1,13 @@
-import { FAKE_ACTION, FETCH_BARBERS } from "../actions/clientActions";
+import { FETCH_BARBERS, FETCH_HOLIDAYS, SET_EMAIL, SET_NAME } from "../actions/clientActions";
 
 const initialState = {
+    name: "",
+    email: "",
     barbers: [
         // { "adress": "123 rue fresh", "barberId": 1, "email": "orlando@gmail", "name": "Orlando", "password": "orlando" },
         // { "adress": "123 rue fresh", "barberId": 1, "email": "orlando@gmail", "name": "Ariel", "password": "orlando" }
     ],
-    // examples
-    list: [{ id: 1, text: "initial task" }],
-    completed: [{ id: 12, text: "initial completed task" }]
+    holidays: []
 }
 
 export default function (state = initialState, action) {
@@ -16,6 +16,21 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 barbers: action.payload.tab
+            }
+        case FETCH_HOLIDAYS:
+            return {
+                ...state,
+                holidays: action.payload
+            }
+        case SET_NAME:
+            return {
+                ...state,
+                name: action.payload
+            }
+        case SET_EMAIL:
+            return {
+                ...state,
+                email: action.payload
             }
     }
     return state;

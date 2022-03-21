@@ -11,9 +11,6 @@ const BarberDetail = ({route , navigation}) => {
   return (
     <View style={styles.container}>
         <Text style={styles.text}>Barber Detail: {barber.name}</Text>
-
-     
-
         <View style={styles.btnStyle}>
         <CustomButton text={'Show on Map'} onPress={()=>{navigation.navigate('BarberLocation' , {barber:barber});}}></CustomButton>
         <CustomButton text={'Book an appoinment'} onPress={()=>{navigation.navigate('Booking' , {barber:barber});}}></CustomButton>
