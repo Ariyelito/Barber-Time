@@ -3,8 +3,6 @@ import { View, Text, StyleSheet, TextInput , FlatList, Alert} from 'react-native
 import { headerTintColor, navigationHeaderColor, textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import { containerStyle, mainTextStyle } from '../components/variables';
 
-
-import { containerStyle } from '../components/variables';
 import ScheduleListItem from '../components/ScheduleListItem'
 import { Calendar } from 'react-native-calendars';
 
@@ -171,16 +169,9 @@ const styles = StyleSheet.create({
   },
   calendar: {
   
-<<<<<<< Updated upstream
   },
   text:{
     ...mainTextStyle,
-=======
-  }, 
-  flatList:{
-    alignSelf:'stretch',
-    
->>>>>>> Stashed changes
   }
 
 })
