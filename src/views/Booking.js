@@ -14,6 +14,8 @@ import { dropDatabase, getAll, getBarberDispo, insertAppoinment } from '../db/Sq
 
 import { useSelector, useDispatch } from 'react-redux';
 import * as clientActions from '../redux/actions/clientActions'
+import TimeAvalScreen from '../components/booking/TimeAvalScreen';
+import CalendarScreen from '../components/booking/CalendarScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,16 +47,7 @@ LocaleConfig.defaultLocale = 'fr';
 const Booking = ({ route, navigation }) => {
   const barber = route.params.barber;
   //Fetch holidays
-  const currentDate = new Date().toISOString().slice(0, 10)
-  const [daySelected, setDaySelected] = useState(currentDate);
 
-  const [holidays, setHolidays] = useState([]);
-  const getHolidays = () => {
-    fetch('https://date.nager.at/api/v2/publicholidays/2022/CA/')
-      .then(resp => resp.json())
-      .then(json => setHolidays(json));
-  };
-  useEffect(() => { getHolidays() }, []);
 
   const dispatch = useDispatch();
 
@@ -72,98 +65,8 @@ const Booking = ({ route, navigation }) => {
 
 
 
-  const markedDates = () => {
-    let dates = {};
-    holidays.forEach(element => {
-      dates[element.date] = { selected: true, selectedColor: 'red' };
-    });
-    dates[daySelected] = { selected: true, selectedColor: '#95C9FF', disableTouchEvent: true, marked: true };
-    return dates;
-  }
-
-  const TimeAvl = () => {
-    const name = useSelector(state => state.client.name)
-    const email = useSelector(state => state.client.email)
-    //getAll('appoinments' , tab=>console.log(tab));
-    const [data, setData] = useState([]);
-    useEffect(() => {
-      getBarberDispo(1, daySelected, (disp) => setData(disp));
-    }, []);
-
-    const pressHandler = (time) => {
-
-      insertAppoinment(email, name, daySelected, time, barber.barberId);
-    }
-
-
-    const renderItem = ({ item }) => {
-      return (
-        <ScheduleListItem time={item} onPress={pressHandler} />
-      );
-    }
-    // flat List pour les dispo
-
-    return (
-      <FlatList
-        style={styles.flatList}
-        data={data}
-        // numColumns={3}    
-        renderItem={renderItem}
-      ></FlatList>
-    );
-  };
-
-  const BookDate = () => {
-    const dispatch = useDispatch();
-
-    // const [name, setName] = useState('');
-    // const [email, setEmail] = useState('');
-    const name = useSelector(state => state.client.name)
-    const email = useSelector(state => state.client.email)
-
-    const next = () => {
-      if (name == '') {
-        Alert.alert("Veuillez entrez votre nom.");
-      } else if (email == '') {
-        Alert.alert("Veuillez entrez votre émail.");
-      } else {
-        navigation.navigate('TimeAvl', { barber: barber });
-      }
-    }
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>Book your appoinment here with {barber.name} !</Text>
-        <TextInput 
-        style={styles.input} 
-        placeholder='Name' 
-        onChangeText={(value) => {
-          dispatch(clientActions.setName(value))
-        }}
-        >
-        </TextInput>
-        <TextInput 
-        style={styles.input} 
-        placeholder='Email' 
-        onChangeText={(value) => {
-          dispatch(clientActions.setEmail(value))
-        }}
-        >
-        </TextInput>
-
-        <Calendar
-          style={styles.calendar}
-          current={daySelected}
-          minDate={currentDate}
-          markedDates={markedDates()}
-          maxDate='2023-01-01'
-          enableSwipeMonths={true}
-          onDayPress={date => { console.log(date); setDaySelected(date.dateString) }}
-
-        ></Calendar>
-        <CustomButton text={'next'} onPress={next}></CustomButton>
-      </View>
-    );
-  };
+  
+  
 
 
 
@@ -181,11 +84,11 @@ const Booking = ({ route, navigation }) => {
     }}  >
       <Stack.Screen
         name="BookDate"
-        component={BookDate}
+        component={CalendarScreen}
         options={{}} />
       <Stack.Screen
-        name="TimeAvl"
-        component={TimeAvl}
+        name="TimeAvalScreen"
+        component={TimeAvalScreen}
         options={{}} />
     </Stack.Navigator>
   );
