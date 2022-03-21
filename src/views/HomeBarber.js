@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Image ,  Text, TouchableOpacity, StyleSheet } from 'react-native';
 import  CustomButton  from './../components/CustomButton';
-import { containerStyle } from '../components/variables';
+import { containerStyle, mainTextStyle } from '../components/variables';
 import { createTables } from '../db/SqlManager';
 
 
@@ -12,7 +12,7 @@ import { createTables } from '../db/SqlManager';
     <View style={styles.container}>
        
        <Image style={styles.logo} source={require('./../../images/logo.png')}></Image>
-        <Text>Barber Time</Text>     
+        <Text style={styles.text}>Barber Time</Text>     
      
      
       <CustomButton text={'Connectez-vous en tant que barbier'} onPress={() => { navigation.navigate('Login') }}></CustomButton>
@@ -34,5 +34,9 @@ const styles = StyleSheet.create({
   button:{
     
   },
+  text:{
+    ...mainTextStyle,
+   
+  }
 })
 export default Home;
