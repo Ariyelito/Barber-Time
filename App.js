@@ -29,6 +29,7 @@ createTablesDb();
  
 
 return (
+  <Provider store={store} >
   <NavigationContainer >
       <Stack.Navigator screenOptions={{
         headerStyle: {
@@ -61,7 +62,7 @@ return (
            
         </Stack.Navigator>
     </NavigationContainer>
-  
+    </Provider>
     
 );
 
@@ -69,7 +70,7 @@ return (
 
 
     /*
-    <Provider store={store} >
+  
       <NavigationContainer  >
       <Tab.Navigator > 
         
@@ -82,7 +83,7 @@ return (
       
        
       </NavigationContainer>
-    </Provider>*/
+   */
  
 }
 

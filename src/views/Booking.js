@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput , FlatList } from 'react-native';
+import { View, Text, StyleSheet, TextInput , FlatList, Alert} from 'react-native';
 import { headerTintColor, navigationHeaderColor, textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
 import { containerStyle, mainTextStyle } from '../components/variables';
 
+
+import { containerStyle } from '../components/variables';
+import ScheduleListItem from '../components/ScheduleListItem'
 import { Calendar } from 'react-native-calendars';
 
 import { LocaleConfig } from 'react-native-calendars';
@@ -61,21 +64,30 @@ const Booking = ({ route, navigation }) => {
   }
 
   const TimeAvl = () => {
-    getAll('appoinments' , tab=>console.log(tab));
+    //getAll('appoinments' , tab=>console.log(tab));
     const [data , setData] = useState([]);
     useEffect(()=>{
       getBarberDispo(1, daySelected, (disp) => setData(disp));
     },[]);
+
+    const pressHandler=(time)=>{
+     
+      insertAppoinment(email,daySelected,time,barber.barberId);
+    }
+
+
     const renderItem = ({item})=>{
       return(
-        <Text>{item}</Text>
+        <ScheduleListItem  time={item} onPress={pressHandler}/>
       );
     }
     // flat List pour les dispo
     
     return (
       <FlatList
+      style={styles.flatList}
       data={data}
+    // numColumns={3}    
       renderItem={renderItem}
       ></FlatList>
     );
@@ -83,12 +95,18 @@ const Booking = ({ route, navigation }) => {
 
   const BookDate = () => {
 
-
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState('');   
 
-   
-
+    const next=()=>{
+      if( name ==''){
+        Alert.alert("Veuillez entrez votre nom.");
+      }else if(email ==''){
+        Alert.alert("Veuillez entrez votre émail.");
+      }else{
+        navigation.navigate('TimeAvl', { barber: barber });
+      }
+    }
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Book your appoinment here with {barber.name} !</Text>
@@ -105,11 +123,12 @@ const Booking = ({ route, navigation }) => {
           onDayPress={date => { console.log(date); setDaySelected(date.dateString) }}
          
         ></Calendar>
-        <CustomButton text={'next'} onPress={() => { navigation.navigate('TimeAvl', { barber: barber }); }}></CustomButton>
+        <CustomButton text={'next'} onPress={next}></CustomButton>
       </View>
     );
   };
 
+  
 
 
   return (
@@ -152,9 +171,16 @@ const styles = StyleSheet.create({
   },
   calendar: {
   
+<<<<<<< Updated upstream
   },
   text:{
     ...mainTextStyle,
+=======
+  }, 
+  flatList:{
+    alignSelf:'stretch',
+    
+>>>>>>> Stashed changes
   }
 
 })
