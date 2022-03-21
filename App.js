@@ -38,25 +38,26 @@ return (
         headerTitleStyle: {
           fontWeight: 'bold',
         },
+        headerShown:false,
       
       }}  >
           <Stack.Screen
             name="ChoosingPage"
             component={ChoosingPage}
             options={{
-              headerShown: false
+             headerShown:true,
 
             }} />
            <Stack.Screen
             name="ClientView"
             component={ClientView}
-            options={{  headerShown: false
+            options={{  
             }} />
             <Stack.Screen
             name="BarberView"
             component={BarberView}
             options={{
-              headerShown: false
+             
             }} /> 
            
         </Stack.Navigator>
