@@ -42,6 +42,7 @@ export const createTablesDb = ()=>{
             `CREATE TABLE IF NOT EXISTS appoinments (
                 appoinmentId INTEGER PRIMARY KEY AUTOINCREMENT ,
                 emailClt varchar(255) ,
+                nameClt varchar(255),
                 date varchar(255),
                 time varchar(255),
                 barberId varchar(255),
@@ -121,6 +122,7 @@ export const insertAppoinment = ( ...params )=>{
             `CREATE TABLE IF NOT EXISTS appoinments (
                 appoinmentId INTEGER PRIMARY KEY AUTOINCREMENT ,
                 emailClt varchar(255) ,
+                nameClt varchar(255),
                 date varchar(255),
                 time varchar(255),
                 barberId varchar(255),
