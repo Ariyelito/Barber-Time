@@ -82,6 +82,8 @@ const Booking = ({ route, navigation }) => {
   }
 
   const TimeAvl = () => {
+    const name = useSelector(state => state.client.name)
+    const email = useSelector(state => state.client.email)
     //getAll('appoinments' , tab=>console.log(tab));
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -90,7 +92,7 @@ const Booking = ({ route, navigation }) => {
 
     const pressHandler = (time) => {
 
-      insertAppoinment(email, nameCl, daySelected, time, barber.barberId);
+      insertAppoinment(email, name, daySelected, time, barber.barberId);
     }
 
 
