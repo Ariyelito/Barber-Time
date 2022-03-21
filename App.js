@@ -46,7 +46,6 @@ return (
             component={ChoosingPage}
             options={{
              headerShown:true,
-
             }} />
            <Stack.Screen
             name="ClientView"

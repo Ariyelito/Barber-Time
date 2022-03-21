@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text , StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
 import CustomButton from '../components/CustomButton';
-import { containerStyle } from '../components/variables';
+import { containerStyle, mainTextStyle } from '../components/variables';
 
 
 
@@ -10,7 +10,7 @@ const BarberDetail = ({route , navigation}) => {
     const barber = route.params.barber;
   return (
     <View style={styles.container}>
-        <Text>Barber Detail: {barber.name}</Text>
+        <Text style={styles.text}>Barber Detail: {barber.name}</Text>
 
      
 
@@ -32,7 +32,9 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:'flex-end',
         marginBottom:20,
-    },
+    }, text:{
+      ...mainTextStyle,
+    }
     
   })
 export default BarberDetail;

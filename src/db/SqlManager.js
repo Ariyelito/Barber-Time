@@ -142,30 +142,22 @@ export const insertAppoinment = ( ...params )=>{
      
 };
 
-export  const getAll =  (table,callBack ,err)=>{
-    
+export  const getAll =  (table,callBack )=>{
     const tab = [];
-
     db.transaction((tx)=>{
         tx.executeSql(
             `SELECT * FROM ${table};`,
             [],
-            (tx,results) => {
-                
+            (tx,results) => {     
                 var len = results.rows.length;
                 for (let i = 0; i < len; i++) {
                     let row = results.rows.item(i); 
                     tab.push(row);
-           
           }
           callBack(tab);
-  
             } , (err) =>{console.log(err)}
         )
     }); 
-   
-   
-    
 };
 
 

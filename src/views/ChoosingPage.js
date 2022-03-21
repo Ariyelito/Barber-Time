@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Image ,  Text, TouchableOpacity, StyleSheet } from 'react-native';
 import  CustomButton  from './../components/CustomButton';
-import { containerStyle } from '../components/variables';
+import { containerStyle , mainTextStyle } from '../components/variables';
 import { createTables } from '../db/SqlManager';
+
 
 
 
@@ -12,7 +13,7 @@ import { createTables } from '../db/SqlManager';
     <View style={styles.container}>
        
        <Image style={styles.logo} source={require('./../../images/logo.png')}></Image>
-        <Text>Vous etes</Text>
+        <Text style={styles.text}>Vous etes</Text>
       
      
       <CustomButton text={'Un client'} onPress={()=>{navigation.navigate('ClientView')}}></CustomButton>
@@ -35,5 +36,9 @@ const styles = StyleSheet.create({
   button:{
     
   },
+  text:{
+    ...mainTextStyle,
+  }
+  
 })
 export default ChoosingPage;

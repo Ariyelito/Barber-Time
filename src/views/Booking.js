@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput , FlatList } from 'react-native';
 import { headerTintColor, navigationHeaderColor, textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
-import { containerStyle } from '../components/variables';
+import { containerStyle, mainTextStyle } from '../components/variables';
 
 import { Calendar } from 'react-native-calendars';
 
@@ -91,7 +91,7 @@ const Booking = ({ route, navigation }) => {
 
     return (
       <View style={styles.container}>
-        <Text>Book your appoinment here with {barber.name} !</Text>
+        <Text style={styles.text}>Book your appoinment here with {barber.name} !</Text>
         <TextInput style={styles.input} placeholder='Name' onChangeText={setName}></TextInput>
         <TextInput style={styles.input} placeholder='Email' onChangeText={setEmail}></TextInput>
 
@@ -153,6 +153,9 @@ const styles = StyleSheet.create({
   calendar: {
   
   },
+  text:{
+    ...mainTextStyle,
+  }
 
 })
 export default Booking;
