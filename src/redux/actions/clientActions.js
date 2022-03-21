@@ -2,6 +2,7 @@ export const FETCH_BARBERS = 'FETCH_BARBERS';
 export const FETCH_HOLIDAYS = 'FETCH_BARBERS';
 export const SET_NAME = 'SET_NAME';
 export const SET_EMAIL = 'SET_EMAIL';
+export const SELECT_DAY = 'SELECT_DAY';
 
 export const fetchBarbers = (tab) => {
     return dispatch => {
@@ -23,6 +24,13 @@ export const setEmail = (email) => {
     return {
         type: SET_EMAIL,
         payload: { email }
+    }
+}
+
+export const selectDay = (day) => {
+    return {
+        type: SELECT_DAY,
+        payload: { day }
     }
 }
 
