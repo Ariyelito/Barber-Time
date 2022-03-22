@@ -18,7 +18,6 @@ import ChoosingPage from './src/views/ChoosingPage';
 
 import { createTablesDb, dropDatabase, insertAppoinment } from './src/db/SqlManager';
 
-import {Notifications} from 'react-native-notifications';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +29,11 @@ const App = () => {
 
 
 
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> parent of ca2e8fb (notification)
   return (
     <Provider store={store} >
       <NavigationContainer >
