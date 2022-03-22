@@ -21,7 +21,7 @@ const UserInfoScreen = ({navigation}) => {
         //   } else {
         //     navigation.navigate('TimeAvalScreen');
         //   }
-        navigation.navigate('CalendarScreen');
+        navigation.navigate('Home');
         }
   return (
     <View style={styles.container}>
