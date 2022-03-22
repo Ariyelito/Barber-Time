@@ -29,15 +29,6 @@ const App = () => {
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> parent of ca2e8fb (notification)
-=======
-
->>>>>>> parent of ca2e8fb (notification)
   return (
     <Provider store={store} >
       <NavigationContainer >
