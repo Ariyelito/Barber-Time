@@ -9,7 +9,7 @@ import ScheduleListItem from '../ScheduleListItem';
 import { containerStyle, mainTextStyle } from '../variables';
 import * as clientActions from './../../redux/actions/clientActions'
 
-const TimeAvalScreen = () => {
+const TimeAvalScreen = ({navigation}) => {
     const name = useSelector(state => state.client.name)
     const email = useSelector(state => state.client.email)
     const daySelected = useSelector(state => state.client.daySelected)

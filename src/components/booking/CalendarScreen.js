@@ -6,6 +6,33 @@ import { containerStyle, mainTextStyle } from '../variables';
 import { Calendar } from 'react-native-calendars';
 import { useSelector, useDispatch } from 'react-redux';
 import * as clientActions from './../../redux/actions/clientActions'
+import { LocaleConfig } from 'react-native-calendars';
+
+LocaleConfig.locales['fr'] = {
+
+    monthNames: [
+      'Janvier',
+      'Février',
+      'Mars',
+      'Avril',
+      'Mai',
+      'Juin',
+      'Juillet',
+      'Août',
+      'Septembre',
+      'Octobre',
+      'Novembre',
+      'Décembre'
+    ],
+    monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+    dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+    dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+    today: "Aujourd'hui"
+  };
+  LocaleConfig.defaultLocale = 'fr';
+  
+
+
 
 const CalendarScreen = ({navigation}) => {
     const dispatch = useDispatch();
@@ -39,34 +66,18 @@ const CalendarScreen = ({navigation}) => {
       }
     
     const next = () => {
-      if (name == '') {
-        Alert.alert("Veuillez entrez votre nom.");
-      } else if (email == '') {
-        Alert.alert("Veuillez entrez votre émail.");
-      } else {
-        navigation.navigate('TimeAvalScreen');
-      }
+    //   if (name == '') {
+    //     Alert.alert("Veuillez entrez votre nom.");
+    //   } else if (email == '') {
+    //     Alert.alert("Veuillez entrez votre émail.");
+    //   } else {
+    //     navigation.navigate('TimeAvalScreen');
+    //   }
+    navigation.navigate('TimeAvalScreen');
     }
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Book your appoinment here with {barber.name} !</Text>
-        <TextInput 
-        style={styles.input} 
-        placeholder='Name' 
-        onChangeText={(value) => {
-          dispatch(clientActions.setName(value))
-        }}
-        >
-        </TextInput>
-        <TextInput 
-        style={styles.input} 
-        placeholder='Email' 
-        onChangeText={(value) => {
-          dispatch(clientActions.setEmail(value))
-        }}
-        >
-        </TextInput>
-
+       
         <Calendar
           style={styles.calendar}
           current={daySelected}

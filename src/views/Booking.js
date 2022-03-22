@@ -16,31 +16,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as clientActions from '../redux/actions/clientActions'
 import TimeAvalScreen from '../components/booking/TimeAvalScreen';
 import CalendarScreen from '../components/booking/CalendarScreen';
+import UserInfoScreen from '../components/booking/UserInfoScreen';
 
 const Stack = createNativeStackNavigator();
 
-LocaleConfig.locales['fr'] = {
-
-  monthNames: [
-    'Janvier',
-    'Février',
-    'Mars',
-    'Avril',
-    'Mai',
-    'Juin',
-    'Juillet',
-    'Août',
-    'Septembre',
-    'Octobre',
-    'Novembre',
-    'Décembre'
-  ],
-  monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-  dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-  dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
-  today: "Aujourd'hui"
-};
-LocaleConfig.defaultLocale = 'fr';
 
 
 
@@ -63,14 +42,6 @@ const Booking = ({ route, navigation }) => {
   // console.log('redux holidays :')
   // console.log(holidays)
 
-
-
-  
-  
-
-
-
-
   return (
     <Stack.Navigator screenOptions={{
       headerStyle: {
@@ -82,14 +53,19 @@ const Booking = ({ route, navigation }) => {
       },
       headerShown: false,
     }}  >
+         <Stack.Screen
+        name="UserInfoScreen"
+        component={UserInfoScreen}
+        options={{}} />
       <Stack.Screen
-        name="BookDate"
+        name="CalendarScreen"
         component={CalendarScreen}
         options={{}} />
       <Stack.Screen
         name="TimeAvalScreen"
         component={TimeAvalScreen}
         options={{}} />
+      
     </Stack.Navigator>
   );
 }
