@@ -3,6 +3,8 @@ export const FETCH_HOLIDAYS = 'FETCH_BARBERS';
 export const SET_NAME = 'SET_NAME';
 export const SET_EMAIL = 'SET_EMAIL';
 export const SELECT_DAY = 'SELECT_DAY';
+export const SELECTED_TIME = 'SELECTED_TIME';
+export const SELECTED_BARBER = 'SELECTED_BARBER';
 
 export const fetchBarbers = (tab) => {
     return dispatch => {
@@ -31,6 +33,18 @@ export const selectDay = (day) => {
     return {
         type: SELECT_DAY,
         payload: { day }
+    }
+}
+export const selectedTime = (time) => {
+    return {
+        type: SELECTED_TIME,
+        payload: { time }
+    }
+}
+export const selectedBarber = (selBarber) => {
+    return {
+        type: SELECTED_BARBER,
+        payload: { selBarber }
     }
 }
 

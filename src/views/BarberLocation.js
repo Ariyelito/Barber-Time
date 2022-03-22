@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text , StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
+import { useSelector } from 'react-redux';
 import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
 
 
 
 const BarberLocation = ({route , navigation}) => {
-    const barber = route.params.barber;
+    
+    const barber = useSelector(state => state.client.selBarber).selBarber;
+
 
     const ahuntsicRegion = {
         latitude: 45.552198625534196,
@@ -27,7 +30,7 @@ const BarberLocation = ({route , navigation}) => {
       </MapView>
 
         <View style={styles.btnStyle}>
-        <CustomButton text={'Book an appoinment with ' + barber.name} onPress={()=>{navigation.navigate('Booking' , {barber:barber});}}></CustomButton>
+        <CustomButton text={'Book an appoinment with ' + barber.name} onPress={()=>{navigation.navigate('Booking');}}></CustomButton>
         </View>
     </View>
   );

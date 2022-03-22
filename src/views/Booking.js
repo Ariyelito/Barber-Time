@@ -13,6 +13,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import TimeAvalScreen from '../components/booking/TimeAvalScreen';
 import CalendarScreen from '../components/booking/CalendarScreen';
 import UserInfoScreen from '../components/booking/UserInfoScreen';
+import AppointmentConfirmation from '../components/booking/AppointmentConfirmation';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +45,10 @@ const Booking = () => {
       <Stack.Screen
         name="TimeAvalScreen"
         component={TimeAvalScreen}
+        options={{}} />
+        <Stack.Screen
+        name="AppointmentConfirmation"
+        component={AppointmentConfirmation}
         options={{}} />
       
     </Stack.Navigator>

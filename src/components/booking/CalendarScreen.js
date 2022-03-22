@@ -42,7 +42,7 @@ const CalendarScreen = ({ navigation }) => {
   const name = useSelector(state => state.client.name)
   const email = useSelector(state => state.client.email)
   // const barber = useSelector(state => state.barber)
-  const selectedDay = useSelector(state => state.client.selectedDay)
+  const selectedDay = useSelector(state => state.client.day)
 
 
   const currentDate = new Date().toISOString().slice(0, 10)

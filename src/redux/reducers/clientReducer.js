@@ -1,14 +1,16 @@
-import { FETCH_BARBERS, FETCH_HOLIDAYS, SET_EMAIL, SET_NAME, SELECT_DAY } from "../actions/clientActions";
+import { FETCH_BARBERS, FETCH_HOLIDAYS, SET_EMAIL, SET_NAME, SELECT_DAY,SELECTED_TIME,SELECTED_BARBER  } from "../actions/clientActions";
 
 const initialState = {
     name: {},
     email: {},
-    selectedDay: {},
+    day: {},
     barbers: [
         // { "adress": "123 rue fresh", "barberId": 1, "email": "orlando@gmail", "name": "Orlando", "password": "orlando" },
         // { "adress": "123 rue fresh", "barberId": 1, "email": "orlando@gmail", "name": "Ariel", "password": "orlando" }
     ],
-    holidays: []
+    holidays: [],
+    time:"",
+    selBarber:[],
 }
 
 export default function (state = initialState, action) {
@@ -36,7 +38,17 @@ export default function (state = initialState, action) {
         case SELECT_DAY:
             return {
                 ...state,
-                email: action.payload
+                day: action.payload
+            }
+        case SELECTED_TIME:
+            return {
+                ...state,
+                time: action.payload
+            }
+        case SELECTED_BARBER:
+            return {
+                ...state,
+                selBarber: action.payload
             }
             // current barber
     }

@@ -25,12 +25,21 @@ const ListBarbers = ({ navigation }) => {
 
    // redux (get) states
   const data = useSelector(state => state.client.barbers)
-  console.log("redux barber list ::")
-  console.log(data)
+ 
+
+
+ 
+
+
+  const onPressHandler=(item)=>{
+    console.log(item)
+    dispatch(clientActions.selectedBarber(item));
+     navigation.navigate('BarberDetail');
+  }
 
   const renderItem = ({ item }) => {
     return (
-      <BarberListItem name={item.name} adress={item.adress} onPress={() => { navigation.navigate('BarberDetail', { barber: item }); }}></BarberListItem>
+      <BarberListItem name={item.name} adress={item.adress} onPress={()=>onPressHandler(item)}></BarberListItem>
     );
   };
   return (

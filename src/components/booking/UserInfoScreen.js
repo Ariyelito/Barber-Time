@@ -11,7 +11,8 @@ import CustomButton from '../CustomButton';
 
 const UserInfoScreen = ({navigation}) => {
 
-    const barber = useSelector(state => state.barber)
+  const barber = useSelector(state => state.client.selBarber).selBarber;
+
     const dispatch = useDispatch();
 
     const next = () => {
