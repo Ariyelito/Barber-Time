@@ -22,7 +22,7 @@ const TimeAvalScreen = () => {
 
     const pressHandler = (time) => {
 
-      insertAppoinment(email, name, daySelected, time, barber.barberId);
+      insertAppoinment(email.email, name.name, daySelected, time, barber.barberId);
     }
 
 
