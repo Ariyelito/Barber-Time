@@ -12,6 +12,7 @@ import CustomButton from '../CustomButton';
 const UserInfoScreen = ({navigation}) => {
 
     const barber = useSelector(state => state.barber)
+    const dispatch = useDispatch();
 
     const next = () => {
         //   if (name == '') {
@@ -21,7 +22,7 @@ const UserInfoScreen = ({navigation}) => {
         //   } else {
         //     navigation.navigate('TimeAvalScreen');
         //   }
-        navigation.navigate('Home');
+        navigation.navigate('CalendarScreen');
         }
   return (
     <View style={styles.container}>
