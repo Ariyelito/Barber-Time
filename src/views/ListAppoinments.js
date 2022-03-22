@@ -19,8 +19,9 @@ const ListAppoinments = () => {
 const renderItem=({item})=>{
 console.log(item);
 
+
 return(
-  <BarberApointementListItem time={item.time} name={item.nameClt} email={item.emailClt} />
+  <BarberApointementListItem time={item.time} name={item.nameClt} email={item.emailClt} onPressHandler={()=>{console.log("remove apointement")}} />
 
 );
 

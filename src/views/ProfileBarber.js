@@ -6,7 +6,7 @@ import ListAppoinments from './ListAppoinments';
 
 
 const ProfileBarber = ({route}) => {
-  const barber = useSelector(state => state.selBarber).selBarber;
+  const barber = useSelector(state => state.client.selBarber).selBarber;
  
    const getAllAppoinments = ()=>{
      getAll('appoinments',(tab)=>{

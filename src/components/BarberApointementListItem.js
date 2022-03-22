@@ -4,10 +4,10 @@ import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
 import { containerStyle } from './variables';
 
 // create a component
-const BarberApointementListItem = ({time,name,email}) => {
+const BarberApointementListItem = ({time,name,email, onPressHandler}) => {
     return (
-        <View style={{flex:1}}>
-        <TouchableOpacity style={styles.container} >
+        <View style={styles.container} >
+    
             <Text style={styles.name}>
              {time}
             </Text>
@@ -16,6 +16,10 @@ const BarberApointementListItem = ({time,name,email}) => {
             </Text>
             <Text style={styles.name}>
              {email}
+            </Text>
+        <TouchableOpacity onPress={()=>onPressHandler()}>
+            <Text  style={styles.name}>
+                X
             </Text>
         </TouchableOpacity>
      </View>
