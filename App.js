@@ -15,20 +15,13 @@ import Booking from './src/views/Booking';
 import ClientView from './src/views/ClientView';
 import BarberView from './src/views/BarberView';
 import ChoosingPage from './src/views/ChoosingPage';
-
 import { createTablesDb, dropDatabase, insertAppoinment } from './src/db/SqlManager';
-
 
 const Stack = createNativeStackNavigator();
 
-
 const App = () => {
 
-
   createTablesDb();
-
-
-
 
   return (
     <Provider store={store} >
@@ -59,34 +52,12 @@ const App = () => {
             name="BarberView"
             component={BarberView}
             options={{
-
             }} />
-
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
 
   );
-
-
-
-
-  /*
- 
-    <NavigationContainer  >
-    <Tab.Navigator > 
-      
-    <Tab.Screen name="Client" component={ClientView}  />
-    <Tab.Screen name="Barber" component={BarberView} />
-
-    </Tab.Navigator>
-
-
-    
-     
-    </NavigationContainer>
- */
-
 }
 
 export default App;

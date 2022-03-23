@@ -25,7 +25,6 @@ const db = SQLite.openDatabase(
    ];
 
 
-
 export const createTablesDb = ()=>{
     db.transaction((tx)=>{
         tx.executeSql(
