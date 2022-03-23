@@ -3,7 +3,7 @@ import { FETCH_BARBERS, FETCH_HOLIDAYS, SET_EMAIL, SET_NAME, SELECT_DAY,SELECTED
 const initialState = {
     name: {},
     email: {},
-    day: {},
+    day: new Date().toISOString().slice(0, 10),
     barbers: [
         // { "adress": "123 rue fresh", "barberId": 1, "email": "orlando@gmail", "name": "Orlando", "password": "orlando" },
         // { "adress": "123 rue fresh", "barberId": 1, "email": "orlando@gmail", "name": "Ariel", "password": "orlando" }
@@ -11,6 +11,7 @@ const initialState = {
     holidays: [],
     time:"",
     selBarber:[],
+
 }
 
 export default function (state = initialState, action) {
@@ -18,7 +19,7 @@ export default function (state = initialState, action) {
         case FETCH_BARBERS:
             return {
                 ...state,
-                barbers: action.payload.tab
+                barbers: action.payload.tab 
             }
         case FETCH_HOLIDAYS:
             return {
@@ -28,7 +29,7 @@ export default function (state = initialState, action) {
         case SET_NAME:
             return {
                 ...state,
-                name: action.payload
+                name: action.payload 
             }
         case SET_EMAIL:
             return {

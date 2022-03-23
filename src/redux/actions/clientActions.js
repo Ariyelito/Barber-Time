@@ -18,33 +18,33 @@ export const fetchBarbers = (tab) => {
 export const setName = (name) => {
     return {
         type: SET_NAME,
-        payload: { name }
+        payload:  name 
     }
 }
 
 export const setEmail = (email) => {
     return {
         type: SET_EMAIL,
-        payload: { email }
+        payload:  email
     }
 }
 
 export const selectDay = (day) => {
     return {
         type: SELECT_DAY,
-        payload: { day }
+        payload:  day 
     }
 }
 export const selectedTime = (time) => {
     return {
         type: SELECTED_TIME,
-        payload: { time }
+        payload:  time 
     }
 }
 export const selectedBarber = (selBarber) => {
     return {
         type: SELECTED_BARBER,
-        payload: { selBarber }
+        payload:  selBarber 
     }
 }
 
@@ -56,7 +56,7 @@ export const fetchHolidays = () => {
         console.log(data);
         dispatch({
             type: FETCH_HOLIDAYS,
-            payload: { data }
+            payload:  data
         });
     }
 }

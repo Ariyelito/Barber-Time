@@ -44,9 +44,9 @@ const CalendarScreen = ({ navigation }) => {
   // const barber = useSelector(state => state.barber)
   const selectedDay = useSelector(state => state.client.day)
 
+  const currentDay = new Date().toISOString().slice(0, 10);
 
-  const currentDate = new Date().toISOString().slice(0, 10)
-  const [daySelected, setDaySelected] = useState(currentDate);
+  
 
   const [holidays, setHolidays] = useState([]);
   const getHolidays = () => {
@@ -61,7 +61,7 @@ const CalendarScreen = ({ navigation }) => {
     holidays.forEach(element => {
       dates[element.date] = { selected: true, selectedColor: 'red' };
     });
-    dates[daySelected] = { selected: true, selectedColor: '#95C9FF', disableTouchEvent: true, marked: true };
+    dates[selectedDay] = { selected: true, selectedColor: '#95C9FF', disableTouchEvent: true, marked: true };
     return dates;
   }
 
@@ -75,13 +75,17 @@ const CalendarScreen = ({ navigation }) => {
     //   }
     navigation.navigate('TimeAvalScreen');
   }
+
+ 
+  //console.log('name : ' + name.tab + ' Email : ' + email.email);
+  
   return (
     <View style={styles.container}>
 
       <Calendar
         style={styles.calendar}
-        current={daySelected}
-        minDate={currentDate}
+        current={selectedDay}
+        minDate={currentDay}
         markedDates={markedDates()}
         maxDate='2023-01-01'
         enableSwipeMonths={true}
