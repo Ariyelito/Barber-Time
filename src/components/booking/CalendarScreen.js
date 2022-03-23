@@ -76,7 +76,8 @@ const CalendarScreen = ({ navigation }) => {
     navigation.navigate('TimeAvalScreen');
   }
 
- 
+ const barber = useSelector(state => state.client.selBarber);
+
   //console.log('name : ' + name.tab + ' Email : ' + email.email);
   
   return (

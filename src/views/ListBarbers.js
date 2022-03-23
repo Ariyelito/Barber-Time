@@ -27,10 +27,6 @@ const ListBarbers = ({ navigation }) => {
   const data = useSelector(state => state.client.barbers)
  
 
-
- 
-
-
   const onPressHandler=(item)=>{
     console.log(item)
     dispatch(clientActions.selectedBarber(item));

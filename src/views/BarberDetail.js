@@ -9,7 +9,7 @@ import { containerStyle, mainTextStyle } from '../components/variables';
 
 const BarberDetail = ({navigation}) => {
   
-    const barber = useSelector(state => state.client.selBarber).selBarber;
+    const barber = useSelector(state => state.client.selBarber);
     
   return (
     <View style={styles.container}>

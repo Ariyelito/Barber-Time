@@ -1,8 +1,8 @@
 import { FETCH_BARBERS, FETCH_HOLIDAYS, SET_EMAIL, SET_NAME, SELECT_DAY,SELECTED_TIME,SELECTED_BARBER  } from "../actions/clientActions";
 
 const initialState = {
-    name: {},
-    email: {},
+    name: '',
+    email: '',
     day: new Date().toISOString().slice(0, 10),
     barbers: [
         // { "adress": "123 rue fresh", "barberId": 1, "email": "orlando@gmail", "name": "Orlando", "password": "orlando" },
@@ -10,7 +10,7 @@ const initialState = {
     ],
     holidays: [],
     time:"",
-    selBarber:[],
+    selBarber:{},
 
 }
 
