@@ -10,11 +10,11 @@ import { containerStyle, mainTextStyle } from '../variables';
 // create a component
 const AppointmentConfirmation = ({navigation}) => {
     
-    const barber = useSelector(state => state.client.selBarber).selBarber;
-    const name = useSelector(state => state.client.name).name;
-    const email = useSelector(state => state.client.email).email;
-    const daySelected = useSelector(state => state.client.day).day;
-    const time = useSelector(state => state.client.time).time;
+    const barber = useSelector(state => state.client.selBarber);
+    const name = useSelector(state => state.client.name);
+    const email = useSelector(state => state.client.email);
+    const daySelected = useSelector(state => state.client.day);
+    const time = useSelector(state => state.client.time);
  
     console.log(time);
     const cancelAppointment=()=>{
@@ -34,7 +34,9 @@ const AppointmentConfirmation = ({navigation}) => {
                 <Text style={styles.text}>{barber.name}</Text>  
 
                 <Text style={styles.text} >Name: {name}</Text>
-                <Text style={styles.text} >Email: {email}</Text>    
+                <Text style={styles.text} >Email: {email}</Text>  
+                <Text style={styles.text} >Time: {time}</Text>    
+  
             </View>
 
             <View>
