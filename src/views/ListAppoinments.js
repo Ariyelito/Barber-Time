@@ -12,7 +12,8 @@ const ListAppoinments = () => {
 
   useEffect(() => {
     //getAll('barbers', tab=>console.log(tab) );
-    getAll('appoinments', tab => setData(tab));
+    getAll('appoinments', tab => setData(tab.filter(elem=>elem.barberId === barber.barberId)));
+    
   }, []);
 
 
