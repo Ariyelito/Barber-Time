@@ -10,7 +10,7 @@ export const fetchBarbers = (tab) => {
     return dispatch => {
         dispatch({
             type: FETCH_BARBERS,
-            payload: { tab }
+            payload: tab 
         })
     }
 }

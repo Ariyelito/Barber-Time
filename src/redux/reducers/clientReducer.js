@@ -4,10 +4,7 @@ const initialState = {
     name: '',
     email: '',
     day: new Date().toISOString().slice(0, 10),
-    barbers: [
-        // { "adress": "123 rue fresh", "barberId": 1, "email": "orlando@gmail", "name": "Orlando", "password": "orlando" },
-        // { "adress": "123 rue fresh", "barberId": 1, "email": "orlando@gmail", "name": "Ariel", "password": "orlando" }
-    ],
+    barbers:[],
     holidays: [],
     time:"",
     selBarber:{},
@@ -16,10 +13,11 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case FETCH_BARBERS:
+        case FETCH_BARBERS:     
             return {
                 ...state,
-                barbers: action.payload.tab 
+                barbers: action.payload
+           
             }
         case FETCH_HOLIDAYS:
             return {

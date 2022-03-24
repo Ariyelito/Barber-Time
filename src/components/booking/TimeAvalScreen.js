@@ -14,7 +14,6 @@ const TimeAvalScreen = ({navigation}) => {
     const name = useSelector(state => state.client.name)
     const email = useSelector(state => state.client.email)
     const barber = useSelector(state => state.client.selBarber);
-
     const dispatch = useDispatch();
     const daySelected = useSelector(state => state.client.day)
 
