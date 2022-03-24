@@ -3,9 +3,11 @@ import { Text, View, FlatList, StyleSheet } from 'react-native';
 import BarberApointementListItem from '../components/BarberApointementListItem';
 import { containerStyle } from '../components/variables';
 import { getAll } from '../db/SqlManager';
+import { useSelector } from 'react-redux';
 
 
 const ListAppoinments = () => {
+  const barber = useSelector(state => state.barber.connected);
 
 
   const [data, setData] = useState([]);
@@ -22,7 +24,6 @@ const ListAppoinments = () => {
 
     return (
       <BarberApointementListItem time={item.time} name={item.nameClt} email={item.emailClt} onPressHandler={() => { console.log("remove apointement") }} />
-
     );
 
   }
@@ -36,7 +37,7 @@ const ListAppoinments = () => {
         data={data}
         renderItem={renderItem}
       ></FlatList>
-     : <Text>Vous etes pas fresh</Text>}
+     : <Text style={styles.message}>{barber.name}, vous n'etes pas fresh</Text>}
     </View>
 
   );
@@ -49,6 +50,9 @@ const styles = StyleSheet.create({
   flatList: {
     alignSelf: 'stretch',
 
+  },
+  message : {
+    alignItems:'center'
   }
 
 })
