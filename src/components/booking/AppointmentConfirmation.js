@@ -22,6 +22,7 @@ const AppointmentConfirmation = ({navigation}) => {
     }
     const confirmAppointment=()=>{
       insertAppoinment(email, name, daySelected, time, barber.barberId);
+      navigation.navigate('Home');
     }
     return (
         

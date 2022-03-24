@@ -17,12 +17,7 @@ const BarberApointementListItem = ({time,name,email, onPressHandler}) => {
             <Text style={styles.name}>
              {email}
             </Text>
-        <TouchableOpacity onPress={()=>onPressHandler()}>
-            <Text  style={styles.name}>
-                X
-            </Text>
-        </TouchableOpacity>
-     </View>
+        </View>
     );
 };
 
