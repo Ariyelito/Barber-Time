@@ -1,9 +1,9 @@
-export const FAKE_ACTION= 'FAKE_ACTION';
+export const SET_ACTIVE_BARBER = 'SET_ACTIVE_BARBER';
 
-export const fakeAction = () => {
+export const setActiveBarber = (barber) => {
     return {
-        type: FAKE_ACTION,
-        payload: { id: 2, fake: 'fake action!' }
+        type: SET_ACTIVE_BARBER,
+        payload: barber
         // payload: tasksDat
     }
 }

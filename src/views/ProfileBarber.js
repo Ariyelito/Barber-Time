@@ -5,8 +5,11 @@ import { getAll } from '../db/SqlManager';
 import ListAppoinments from './ListAppoinments';
 
 
-const ProfileBarber = ({route}) => {
-  const barber = useSelector(state => state.client.selBarber).selBarber;
+const ProfileBarber = () => {
+  const barber = useSelector(state => state.barber.connected);
+  console.log("barbier connecté:")
+  console.log(barber)
+  // const barber = useSelector(state => state.client.selBarber).selBarber;
  
    const getAllAppoinments = ()=>{
      getAll('appoinments',(tab)=>{

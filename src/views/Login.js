@@ -4,18 +4,23 @@ import { textInputBackBorderColor, textInputBackgroundColor } from '../component
 import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
 import { barberExistOKConnection, getAll } from '../db/SqlManager';
+import { useSelector, useDispatch } from 'react-redux';
+import * as barberActions from '../redux/actions/barberActions'
+
+
 
 const Login = ({ navigation }) => {
+  const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
- 
   const login = () => {
     if (email != '' && password != '') {
       barberExistOKConnection({email:email,password:password}, (exist , userFound)=> {
         if(exist){
-          navigation.navigate('ProfileBarber' , {barber:userFound[0]});
+          dispatch(barberActions.setActiveBarber(userFound[0]))
+          navigation.navigate('ProfileBarber');
         } else  Alert.alert('User not found');
       })
     } else Alert.alert('Email and password are not valide');
