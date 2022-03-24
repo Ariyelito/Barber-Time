@@ -8,8 +8,6 @@ import { useSelector } from 'react-redux';
 
 const ListAppoinments = () => {
   const barber = useSelector(state => state.barber.connected);
-
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -30,14 +28,14 @@ const ListAppoinments = () => {
 
 
   return (
-    <View>
+    <View style={styles.container}>
       {data.length != 0 ?
       <FlatList
         style={styles.flatList}
         data={data}
         renderItem={renderItem}
       ></FlatList>
-     : <Text style={styles.message}>{barber.name}, vous n'etes pas fresh</Text>}
+     : <Text >{barber.name}, vous n'avez aucun rendez-vous</Text>}
     </View>
 
   );
@@ -50,9 +48,6 @@ const styles = StyleSheet.create({
   flatList: {
     alignSelf: 'stretch',
 
-  },
-  message : {
-    alignItems:'center'
   }
 
 })
