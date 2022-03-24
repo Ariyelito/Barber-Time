@@ -14,7 +14,7 @@ const ListAppoinments = () => {
 
   useEffect(() => {
     //getAll('barbers', tab=>console.log(tab) );
-    getAll('appoinments', tab => setData(tab));
+    getAll('appoinments', tab => setData(tab.filter(elem=>elem.barberId === barber.barberId)));
     
   }, []);
 
@@ -38,7 +38,7 @@ const ListAppoinments = () => {
         data={data}
         renderItem={renderItem}
       ></FlatList>
-     : <Text style={styles.message}>{barber.name}, vous n'etes pas fresh</Text>}
+     : <Text style={styles.message}>{barber.name}, vous n'avez aucun rendez-vous</Text>}
     </View>
 
   );
