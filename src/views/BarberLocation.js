@@ -3,13 +3,15 @@ import { View, Text , StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
 import { useSelector } from 'react-redux';
 import CustomButton from '../components/CustomButton';
-import { containerStyle } from '../components/variables';
+import { containerStyle, requestLocationPermission } from '../components/variables';
 
 
 
 const BarberLocation = ({route , navigation}) => {
     
-    const barber = useSelector(state => state.client.selBarber).selBarber;
+ 
+useEffect(()=>{requestLocationPermission()},[]);
+    const barber = useSelector(state => state.client.selBarber);
 
 
     const ahuntsicRegion = {
@@ -18,6 +20,10 @@ const BarberLocation = ({route , navigation}) => {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
       };
+
+   
+
+
   return (
     <View style={styles.container}>
        
@@ -25,8 +31,11 @@ const BarberLocation = ({route , navigation}) => {
         <MapView
         style={styles.map}
         initialRegion={ahuntsicRegion}
+        showsUserLocation={true}
       >
            <MapView.Marker coordinate={ahuntsicRegion} />
+        
+
       </MapView>
 
         <View style={styles.btnStyle}>
