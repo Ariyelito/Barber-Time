@@ -11,5 +11,6 @@ export const TEXT_INPUT_BACKGROUND_COLOR = '#FFFCF7';
 export const TEXT_INPUT_BACK_BORDER_COLOR = '#715dd3';
 
 export const MAIN_TEXT_COLOR = '#37196F';
+export const REGULAR_TEXT_COLOR = 'black';
 
 

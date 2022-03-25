@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text ,  StyleSheet , TouchableOpacity } from 'react-native';
 import { containerStyle } from '../components/variables';
+import { REGULAR_TEXT_COLOR } from './colors';
 
 
  const BarberListItem = ({ navigation , name ,adress , onPress }) => {
@@ -34,9 +35,11 @@ const styles = StyleSheet.create({
   } , 
   name :{
     fontSize:30,
+    color:REGULAR_TEXT_COLOR
   }, 
   adress:{
     fontSize:20,
+    color:REGULAR_TEXT_COLOR
   },
   
 })
