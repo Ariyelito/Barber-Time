@@ -30,6 +30,7 @@ const ListAppoinments = () => {
 
   return (
     <View style={styles.container}>
+      <Text>Logged in as {barber.name}</Text>
       {data.length != 0 ?
         <FlatList
           style={styles.flatList}

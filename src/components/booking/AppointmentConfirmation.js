@@ -22,14 +22,14 @@ const AppointmentConfirmation = ({ navigation }) => {
   }
   const confirmAppointment = () => {
     insertAppoinment(email, name, daySelected, time, barber.barberId);
-    alert('Your appointment was booked succesfully!');
+    alert('Your appointment was booked succesfully');
     navigation.navigate('Home');
   }
   return (
 
     <View style={styles.container}>
       <View style={styles.containerInfo}>
-        <Text style={[styles.text, { marginTop: 20, marginBottom:10 }]}>Confirm your appointment :</Text>
+        <Text style={[styles.text, { marginTop: 20, marginBottom: 10 }]}>Confirm your appointment :</Text>
         <Text style={styles.textSmall}>Date : {daySelected}</Text>
 
         <Text style={styles.textSmall}>Time : {time}</Text>
@@ -38,7 +38,7 @@ const AppointmentConfirmation = ({ navigation }) => {
 
         <Text style={styles.textSmall}>Name : {name}</Text>
         <Text style={styles.textSmall}>Email : {email}</Text>
-        <View style={{alignItems:'flex-start'}}>
+        <View style={{ alignItems: 'flex-start' }}>
           <CustomButton text={"Cancel"} onPress={cancelAppointment} />
           <CustomButton text={"Confirm"} onPress={confirmAppointment} />
         </View>

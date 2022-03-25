@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
 import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../components/Colors';
 import CustomButton from '../components/CustomButton';
-import { containerStyle } from '../components/Variables';
+import { containerStyle, mainTextStyle } from '../components/Variables';
 import { barberExistOKConnection, getAll } from '../db/SqlManager';
 import { useSelector, useDispatch } from 'react-redux';
 import * as barberActions from '../redux/actions/barberActions'
@@ -16,9 +16,9 @@ const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  useEffect(() => {
-    tryLogin();
-  }, [])
+  // useEffect(() => {
+  //   tryLogin();
+  // }, [])
 
   const login = () => {
     if (email != '' && password != '') {
@@ -62,7 +62,7 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Barber Time</Text>
+      <Text style={[styles.text, { marginTop: 20, marginBottom: 10 }]}>Barber Time</Text>
       <TextInput style={styles.input} placeholder='Email' onChangeText={setEmail}></TextInput>
       <TextInput style={styles.input} placeholder='Password' onChangeText={setPassword}></TextInput>
       <CustomButton text={'Login'} onPress={() => { login() }}></CustomButton>
@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: TEXT_INPUT_BACK_BORDER_COLOR,
     elevation: 8,
+  },
+  text: {
+    ...mainTextStyle,
   }
 
 });
