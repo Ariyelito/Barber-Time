@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
-import { headerTintColor, navigationHeaderColor } from './src/components/colors';
+import { HEADER_TINT_COLOR, NAVIGATION_HEADER_COLOR } from './src/components/colors';
 import ClientView from './src/views/ClientView';
 import BarberView from './src/views/BarberView';
 import ChoosingPage from './src/views/ChoosingPage';
@@ -19,9 +19,9 @@ const App = () => {
       <NavigationContainer >
         <Stack.Navigator screenOptions={{
           headerStyle: {
-            backgroundColor: navigationHeaderColor,
+            backgroundColor: NAVIGATION_HEADER_COLOR,
           },
-          headerTintColor: headerTintColor,
+          HEADER_TINT_COLOR: HEADER_TINT_COLOR,
           headerTitleStyle: {
             fontWeight: 'bold',
           },

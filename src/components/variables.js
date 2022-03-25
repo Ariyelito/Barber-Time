@@ -1,14 +1,14 @@
-import { mainBackgroundColor, mainTextColor } from "./colors";
+import { MAIN_BACK_GROUND_COLOR, MAIN_TEXT_COLOR } from "./colors";
 import { PermissionsAndroid } from 'react-native';
 export const containerStyle = {
     alignItems: "center",
-    backgroundColor:mainBackgroundColor,
+    backgroundColor:MAIN_BACK_GROUND_COLOR,
     flex:1,
 };
 export const mainTextStyle = {
     fontSize:25,
     fontWeight:'bold',
-    color:mainTextColor,
+    color:MAIN_TEXT_COLOR,
 }
 export async function requestLocationPermission() 
 {

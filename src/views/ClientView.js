@@ -1,7 +1,7 @@
 
 import React from 'react';
 import {  StyleSheet } from 'react-native';
-import { headerTintColor, navigationHeaderColor } from '../components/colors';
+import { HEADER_TINT_COLOR, NAVIGATION_HEADER_COLOR } from '../components/colors';
 import Home from '../views/Home';
 import  Booking  from '../views/Booking';
 import  ListBarbers  from '../views/ListBarbers';
@@ -20,9 +20,9 @@ const ClientView = () => {
      
             <Stack.Navigator screenOptions={{
               headerStyle: {
-                backgroundColor: navigationHeaderColor,
+                backgroundColor: NAVIGATION_HEADER_COLOR,
               },
-              headerTintColor: headerTintColor,
+              HEADER_TINT_COLOR: HEADER_TINT_COLOR,
               headerTitleStyle: {
                 fontWeight: 'bold',
               },

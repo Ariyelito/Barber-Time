@@ -3,7 +3,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useSelector} from 'react-redux';
 import { insertAppoinment } from '../../db/SqlManager';
-import { textInputBackBorderColor, textInputBackgroundColor } from '../colors';
+import { TEXT_INPUT_BACK_BORDER_COLOR
+
+, TEXT_INPUT_BACKGROUND_COLOR } from '../colors';
 import CustomButton from '../CustomButton';
 import { containerStyle, mainTextStyle } from '../variables';
 
@@ -68,10 +70,10 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         marginVertical: 10,
         textAlign: 'center',
-        backgroundColor: textInputBackgroundColor,
+        backgroundColor: TEXT_INPUT_BACKGROUND_COLOR,
         borderWidth: 2,
         borderRadius: 20,
-        borderColor: textInputBackBorderColor,
+        borderColor: TEXT_INPUT_BACK_BORDER_COLOR,
         elevation: 8,
       },
       calendar: {

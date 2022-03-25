@@ -1,6 +1,6 @@
 import React, { } from 'react';
 import {  StyleSheet } from 'react-native';
-import { headerTintColor, navigationHeaderColor, textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
+import { HEADER_TINT_COLOR, NAVIGATION_HEADER_COLOR, TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../components/colors';
 import { containerStyle, mainTextStyle } from '../components/variables';
 
 
@@ -26,9 +26,9 @@ const Booking = () => {
   return (
     <Stack.Navigator screenOptions={{
       headerStyle: {
-        backgroundColor: navigationHeaderColor,
+        backgroundColor: NAVIGATION_HEADER_COLOR,
       },
-      headerTintColor: headerTintColor,
+      HEADER_TINT_COLOR: HEADER_TINT_COLOR,
       headerTitleStyle: {
         fontWeight: 'bold',
       },
@@ -64,10 +64,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 10,
     textAlign: 'center',
-    backgroundColor: textInputBackgroundColor,
+    backgroundColor: TEXT_INPUT_BACKGROUND_COLOR,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: textInputBackBorderColor,
+    borderColor: TEXT_INPUT_BACK_BORDER_COLOR,
     elevation: 8,
   },
   calendar: {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { textInputBackBorderColor, textInputBackgroundColor } from '../colors';
+import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../colors';
 import CustomButton from '../CustomButton';
 import { containerStyle, mainTextStyle } from '../variables';
 import { Calendar } from 'react-native-calendars';
@@ -91,10 +91,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 10,
     textAlign: 'center',
-    backgroundColor: textInputBackgroundColor,
+    backgroundColor: TEXT_INPUT_BACKGROUND_COLOR,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: textInputBackBorderColor,
+    borderColor: TEXT_INPUT_BACK_BORDER_COLOR,
     elevation: 8,
   },
   calendar: {

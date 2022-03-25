@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import { View, Text , Alert,TextInput , StyleSheet } from 'react-native';
-import { textInputBackBorderColor, textInputBackgroundColor } from '../colors';
+import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../colors';
 import { containerStyle, mainTextStyle } from '../variables';
 import { useSelector, useDispatch } from 'react-redux';
 import * as clientActions from './../../redux/actions/clientActions'
@@ -63,10 +63,10 @@ const styles = StyleSheet.create({
       marginHorizontal: 20,
       marginVertical: 10,
       textAlign: 'center',
-      backgroundColor: textInputBackgroundColor,
+      backgroundColor: TEXT_INPUT_BACKGROUND_COLOR,
       borderWidth: 2,
       borderRadius: 20,
-      borderColor: textInputBackBorderColor,
+      borderColor: TEXT_INPUT_BACK_BORDER_COLOR,
       elevation: 8,
     },
     calendar: {

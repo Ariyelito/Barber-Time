@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
-import { textInputBackBorderColor, textInputBackgroundColor } from '../components/colors';
+import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../components/colors';
 import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
 import { barberExistOKConnection, getAll } from '../db/SqlManager';
@@ -73,10 +73,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 10,
     textAlign: 'center',
-    backgroundColor: textInputBackgroundColor,
+    backgroundColor: TEXT_INPUT_BACKGROUND_COLOR,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: textInputBackBorderColor,
+    borderColor: TEXT_INPUT_BACK_BORDER_COLOR,
     elevation: 8,
   }
 
