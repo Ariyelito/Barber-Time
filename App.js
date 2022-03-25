@@ -7,7 +7,7 @@ import { HEADER_TINT_COLOR, NAVIGATION_HEADER_COLOR } from './src/components/Col
 import ClientView from './src/views/ClientView';
 import BarberView from './src/views/BarberView';
 import ChoosingPage from './src/views/ChoosingPage';
-import { createTablesDb, dropDatabase, insertAppoinment } from './src/db/SqlManager';
+import { createTablesDb } from './src/db/SqlManager';
 
 const Stack = createNativeStackNavigator();
 

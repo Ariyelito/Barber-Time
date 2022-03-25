@@ -17,6 +17,7 @@ const ProfileBarber = () => {
      });
    }
   return (
+   
     <ListAppoinments />
   );
 }

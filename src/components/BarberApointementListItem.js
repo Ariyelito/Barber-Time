@@ -1,6 +1,6 @@
 //import liraries
 import React from 'react';
-import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { REGULAR_TEXT_COLOR } from './Colors';
 import { containerStyle } from './Variables';
 
