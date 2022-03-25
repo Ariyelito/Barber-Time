@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
-import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../components/colors';
+import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../components/Colors';
 import CustomButton from '../components/CustomButton';
-import { containerStyle } from '../components/variables';
+import { containerStyle } from '../components/Variables';
 import { barberExistOKConnection, getAll } from '../db/SqlManager';
 import { useSelector, useDispatch } from 'react-redux';
 import * as barberActions from '../redux/actions/barberActions'

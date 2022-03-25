@@ -1,4 +1,4 @@
-import { MAIN_BACK_GROUND_COLOR, MAIN_TEXT_COLOR } from "./colors";
+import { MAIN_BACK_GROUND_COLOR, MAIN_TEXT_COLOR } from "./Colors";
 import { PermissionsAndroid } from 'react-native';
 export const containerStyle = {
     alignItems: "center",

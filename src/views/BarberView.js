@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import {StyleSheet } from 'react-native';
-import { HEADER_TINT_COLOR, NAVIGATION_HEADER_COLOR } from '../components/colors';
+import { HEADER_TINT_COLOR, NAVIGATION_HEADER_COLOR } from '../components/Colors';
 
 import HomeBarber from '../views/HomeBarber';
 import Login from '../views/Login';
