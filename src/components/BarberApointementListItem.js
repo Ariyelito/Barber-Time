@@ -8,15 +8,25 @@ const BarberApointementListItem = ({barber, onPressHandler}) => {
     return (
         <View style={styles.container} >
     
+           
+          
+            <View  style={{flex:1}} >
+            <Text style={styles.info}>
+             {barber.emailClt}
+            </Text>
+            <Text style={styles.info}>
+             {barber.nameClt}
+            </Text>
+            </View>
+            <View style={{flex:1 }}>
             <Text style={styles.time}>
              {barber.time}
             </Text>
-            <Text style={styles.name}>
-             {barber.name}
+            <Text style={styles.time}>
+             {barber.date}
             </Text>
-            <Text style={styles.email}>
-             {barber.email}
-            </Text>
+           
+            </View>
             
         </View>
     );
@@ -27,7 +37,6 @@ const styles = StyleSheet.create({
     container: {
         ...containerStyle ,
         alignItems :'flex-start',
-        
         paddingHorizontal:10,
         marginVertical:3,
         paddingVertical:10,
@@ -38,16 +47,15 @@ const styles = StyleSheet.create({
       name :{
         fontSize:15,
         textAlign: 'left',
-        marginLeft:'auto',
-
       }, 
       time: {
           fontSize: 15,
           fontWeight: 'bold',
+          alignSelf:'flex-end'
       },
-      email: {
-          marginLeft:'auto',
-        fontSize: 15
+      info: {
+        fontSize: 15,
+     
     }
     
 });
