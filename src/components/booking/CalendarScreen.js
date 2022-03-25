@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../Colors';
 import CustomButton from '../CustomButton';
 import { containerStyle, mainTextStyle } from '../Variables';
@@ -66,7 +66,7 @@ const CalendarScreen = ({ navigation }) => {
   }
   return (
     <View style={styles.container}>
-
+<Text style={[styles.text, {marginTop:20, marginBottom:10}]}>Choose date :</Text>
       <Calendar
         style={styles.calendar}
         current={selectedDay}

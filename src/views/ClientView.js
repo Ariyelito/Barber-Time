@@ -9,51 +9,50 @@ import ProfileBarber from '../views/ProfileBarber';
 import BarberDetail from '../views/BarberDetail';
 import BarberLocation from '../views/BarberLocation';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+
 
 const Stack = createNativeStackNavigator();
 
 // create a component
 const ClientView = () => {
-    return (
-      
-     
-            <Stack.Navigator screenOptions={{
-              headerStyle: {
-                backgroundColor: NAVIGATION_HEADER_COLOR,
-              },
-              headerTintColor: HEADER_TINT_COLOR,
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
-            }}  >
-                <Stack.Screen
-                  name="Home"
-                  component={Home}
-                  options={{
-                    headerTitle: 'Home'
-                  }} />
-                  {/* <Stack.Screen
-                  name="Login"
-                  component={Login}
-                  options={{}} />
-                  <Stack.Screen
-                  name="Signup"
-                  component={Signup}
-                  options={{}} /> */}
+  const barber = useSelector(state => state.client.selBarber);
+  return (
 
+
+    <Stack.Navigator screenOptions={{
+      headerStyle: {
+        backgroundColor: NAVIGATION_HEADER_COLOR,
+      },
+      headerTintColor: HEADER_TINT_COLOR,
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}  >
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerTitle: 'Home'
+        }} />
       <Stack.Screen
         name="ListBarbers"
         component={ListBarbers}
-        options={{}} />
+        options={{
+          headerTitle: 'Choose your barber'
+        }} />
       <Stack.Screen
         name="BarberDetail"
         component={BarberDetail}
-        options={{}} />
+        options={{
+          headerTitle: 'Barber details'
+        }} />
       <Stack.Screen
         name="BarberLocation"
         component={BarberLocation}
-        options={{}} />
+        options={{
+          headerTitle: barber.name + "'s salon location"
+        }} />
       <Stack.Screen
         name="Booking"
         component={Booking}

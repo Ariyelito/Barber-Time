@@ -40,7 +40,7 @@ const ListBarbers = ({ navigation }) => {
   };
   return (
     <View style={styles.container}>
-      <Text>Choose a barber :</Text>
+      {/* <Text>Choose a barber :</Text> */}
       <FlatList style={styles.flatList}
         data={data}
         renderItem={renderItem}></FlatList>

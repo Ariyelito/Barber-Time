@@ -39,7 +39,7 @@ useEffect(()=>{requestLocationPermission()},[]);
       </MapView>
 
         <View style={styles.btnStyle}>
-        <CustomButton text={'Book an appoinment with ' + barber.name} onPress={()=>{navigation.navigate('Booking');}}></CustomButton>
+        <CustomButton text={'Book an appoinment'} onPress={()=>{navigation.navigate('Booking');}}></CustomButton>
         </View>
     </View>
   );

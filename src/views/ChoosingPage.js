@@ -13,7 +13,7 @@ import { createTables } from '../db/SqlManager';
   return (
     <View style={styles.container}>
        <Image style={styles.logo} source={require('./../../images/logo.png')}></Image>
-        <Text style={styles.text}>Welcome</Text>
+        <Text style={styles.text}>Barber Time!</Text>
       
      
       <CustomButton styles={{width:100}} text={'Client'} onPress={()=>{navigation.navigate('ClientView')}}></CustomButton>

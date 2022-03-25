@@ -19,10 +19,8 @@ const UserInfoScreen = ({navigation}) => {
     const dispatch = useDispatch();
 
     const next = () => {
-          if (name == '') {
-            Alert.alert("Veuillez entrez votre nom.");
-          } else if (email == '') {
-            Alert.alert("Veuillez entrez votre émail.");
+          if (name === '' || email === '') {
+            Alert.alert("Please enter valid name and email");
           } else {
           dispatch(clientActions.setName(name))
           dispatch(clientActions.setEmail(email))
@@ -33,7 +31,7 @@ const UserInfoScreen = ({navigation}) => {
       
   return (
     <View style={styles.container}>
-    <Text style={styles.text}>Book your appoinment here with {barber.name} !</Text>
+    <Text style={[styles.text, {marginTop:20, marginBottom:10}]}>Enter your details :</Text>
     <TextInput 
     style={styles.input} 
     placeholder='Name' 
