@@ -1,13 +1,13 @@
 
 import React from 'react';
-import {  StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { HEADER_TINT_COLOR, NAVIGATION_HEADER_COLOR } from '../components/colors';
 import Home from '../views/Home';
-import  Booking  from '../views/Booking';
-import  ListBarbers  from '../views/ListBarbers';
-import  ProfileBarber  from '../views/ProfileBarber';
-import  BarberDetail  from '../views/BarberDetail';
-import  BarberLocation  from '../views/BarberLocation';
+import Booking from '../views/Booking';
+import ListBarbers from '../views/ListBarbers';
+import ProfileBarber from '../views/ProfileBarber';
+import BarberDetail from '../views/BarberDetail';
+import BarberLocation from '../views/BarberLocation';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -30,7 +30,9 @@ const ClientView = () => {
                 <Stack.Screen
                   name="Home"
                   component={Home}
-                  options={{}} />
+                  options={{
+                    headerTitle: 'Home'
+                  }} />
                   {/* <Stack.Screen
                   name="Login"
                   component={Login}
@@ -39,40 +41,38 @@ const ClientView = () => {
                   name="Signup"
                   component={Signup}
                   options={{}} /> */}
-                  
-                  <Stack.Screen
-                  name="ListBarbers"
-                  component={ListBarbers}
-                  options={{}} />
-                   
-                   
-                  <Stack.Screen
-                  name="BarberDetail"
-                  component={BarberDetail}
-                  options={{}} />
-                   <Stack.Screen
-                  name="BarberLocation"
-                  component={BarberLocation}
-                  options={{}} />
-                  <Stack.Screen
-                  name="Booking"
-                  component={Booking}
-                  options={{}} />
-              </Stack.Navigator>
-            
-        
-          
-    );
+
+      <Stack.Screen
+        name="ListBarbers"
+        component={ListBarbers}
+        options={{}} />
+      <Stack.Screen
+        name="BarberDetail"
+        component={BarberDetail}
+        options={{}} />
+      <Stack.Screen
+        name="BarberLocation"
+        component={BarberLocation}
+        options={{}} />
+      <Stack.Screen
+        name="Booking"
+        component={Booking}
+        options={{}} />
+    </Stack.Navigator>
+
+
+
+  );
 };
 
 // define your styles
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
-    },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2c3e50',
+  },
 });
 
 //make this component available to the app
