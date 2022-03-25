@@ -1,7 +1,7 @@
 //import liraries
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { insertAppoinment } from '../../db/SqlManager';
 import { textInputBackBorderColor, textInputBackgroundColor } from '../colors';
 import CustomButton from '../CustomButton';
@@ -22,6 +22,7 @@ const AppointmentConfirmation = ({navigation}) => {
     }
     const confirmAppointment=()=>{
       insertAppoinment(email, name, daySelected, time, barber.barberId);
+      alert('Appoinment was booked succesfuly');
       navigation.navigate('Home');
     }
     return (

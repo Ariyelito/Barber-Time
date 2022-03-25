@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { textInputBackBorderColor, textInputBackgroundColor } from '../colors';
 import CustomButton from '../CustomButton';
 import { containerStyle, mainTextStyle } from '../variables';
@@ -37,11 +37,6 @@ LocaleConfig.defaultLocale = 'fr';
 const CalendarScreen = ({ navigation }) => {
   const dispatch = useDispatch();
 
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
-  const name = useSelector(state => state.client.name)
-  const email = useSelector(state => state.client.email)
-  // const barber = useSelector(state => state.barber)
   const selectedDay = useSelector(state => state.client.day)
 
   const currentDay = new Date().toISOString().slice(0, 10);
@@ -66,20 +61,9 @@ const CalendarScreen = ({ navigation }) => {
   }
 
   const next = () => {
-    //   if (name == '') {
-    //     Alert.alert("Veuillez entrez votre nom.");
-    //   } else if (email == '') {
-    //     Alert.alert("Veuillez entrez votre émail.");
-    //   } else {
-    //     navigation.navigate('TimeAvalScreen');
-    //   }
+    
     navigation.navigate('TimeAvalScreen');
   }
-
- const barber = useSelector(state => state.client.selBarber);
-
-  //console.log('name : ' + name.tab + ' Email : ' + email.email);
-  
   return (
     <View style={styles.container}>
 

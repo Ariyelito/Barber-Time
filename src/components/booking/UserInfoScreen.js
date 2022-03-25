@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text , TextInput , StyleSheet } from 'react-native';
+import React, { useState} from 'react';
+import { View, Text , Alert,TextInput , StyleSheet } from 'react-native';
 import { textInputBackBorderColor, textInputBackgroundColor } from '../colors';
 import { containerStyle, mainTextStyle } from '../variables';
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,35 +13,37 @@ const UserInfoScreen = ({navigation}) => {
 
   const barber = useSelector(state => state.client.selBarber);
 
+  const [email,setEmail] = useState('');
+  const [name,setName] = useState('');
+
     const dispatch = useDispatch();
 
     const next = () => {
-        //   if (name == '') {
-        //     Alert.alert("Veuillez entrez votre nom.");
-        //   } else if (email == '') {
-        //     Alert.alert("Veuillez entrez votre émail.");
-        //   } else {
-        //     navigation.navigate('TimeAvalScreen');
-        //   }
-        navigation.navigate('CalendarScreen');
+          if (name == '') {
+            Alert.alert("Veuillez entrez votre nom.");
+          } else if (email == '') {
+            Alert.alert("Veuillez entrez votre émail.");
+          } else {
+          dispatch(clientActions.setName(name))
+          dispatch(clientActions.setEmail(email))
+          navigation.navigate('CalendarScreen');
+          }
+        
         }
+      
   return (
     <View style={styles.container}>
     <Text style={styles.text}>Book your appoinment here with {barber.name} !</Text>
     <TextInput 
     style={styles.input} 
     placeholder='Name' 
-    onChangeText={(value) => {
-      dispatch(clientActions.setName(value))
-    }}
+    onChangeText={ setName}
     >
     </TextInput>
     <TextInput 
     style={styles.input} 
     placeholder='Email' 
-    onChangeText={(value) => {
-      dispatch(clientActions.setEmail(value))
-    }}
+    onChangeText={setEmail}
     >
     </TextInput>
 
