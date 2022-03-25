@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text ,  StyleSheet , TouchableOpacity } from 'react-native';
-import { containerStyle } from '../components/variables';
-import { REGULAR_TEXT_COLOR } from './colors';
+import { containerStyle } from './Variables';
+import { REGULAR_TEXT_COLOR } from './Colors';
 
 
  const BarberListItem = ({ navigation , name ,adress , onPress }) => {

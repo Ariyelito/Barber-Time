@@ -1,7 +1,7 @@
 import React, { } from 'react';
 import {  StyleSheet } from 'react-native';
 import { HEADER_TINT_COLOR, NAVIGATION_HEADER_COLOR, TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../components/colors';
-import { containerStyle, mainTextStyle } from '../components/variables';
+import { containerStyle, mainTextStyle } from '../components/Variables';
 
 
 
@@ -28,7 +28,7 @@ const Booking = () => {
       headerStyle: {
         backgroundColor: NAVIGATION_HEADER_COLOR,
       },
-      HEADER_TINT_COLOR: HEADER_TINT_COLOR,
+      headerTintColor: HEADER_TINT_COLOR,
       headerTitleStyle: {
         fontWeight: 'bold',
       },
