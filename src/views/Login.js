@@ -5,7 +5,7 @@ import CustomButton from '../components/CustomButton';
 import { containerStyle } from '../components/variables';
 import { barberExistOKConnection, getAll } from '../db/SqlManager';
 import { useSelector, useDispatch } from 'react-redux';
-import * as barberActions from '../redux/actions/barberActions'
+import * as barberActions from '../redux/actions/barberActions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
