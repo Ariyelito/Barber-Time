@@ -41,7 +41,7 @@ const CalendarScreen = ({ navigation }) => {
 
   const currentDay = new Date().toISOString().slice(0, 10);
 
-  
+
 
   const [holidays, setHolidays] = useState([]);
   const getHolidays = () => {
@@ -61,12 +61,12 @@ const CalendarScreen = ({ navigation }) => {
   }
 
   const next = () => {
-    
+
     navigation.navigate('TimeAvalScreen');
   }
   return (
     <View style={styles.container}>
-<Text style={[styles.text, {marginTop:20, marginBottom:10}]}>Choose date :</Text>
+      <Text style={[styles.text, { marginTop: 20, marginBottom: 10 }]}>Choose date :</Text>
       <Calendar
         style={styles.calendar}
         current={selectedDay}
