@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../colors';
 import CustomButton from '../CustomButton';
-import { containerStyle, mainTextStyle } from '../variables';
+import { containerStyle, mainTextStyle } from '../Variables';
 import { Calendar } from 'react-native-calendars';
 import { useSelector, useDispatch } from 'react-redux';
 import * as clientActions from './../../redux/actions/clientActions'

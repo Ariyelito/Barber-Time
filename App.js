@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
-import { HEADER_TINT_COLOR, NAVIGATION_HEADER_COLOR } from './src/components/colors';
+import { HEADER_TINT_COLOR, NAVIGATION_HEADER_COLOR } from './src/components/Colors';
 import ClientView from './src/views/ClientView';
 import BarberView from './src/views/BarberView';
 import ChoosingPage from './src/views/ChoosingPage';

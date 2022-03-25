@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { containerStyle } from './variables';
+import { containerStyle } from './Variables';
 
 // create a component
 const ScheduleListItem = ({time,onPress}) => {

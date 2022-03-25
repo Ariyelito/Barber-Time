@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import { View, Text , Alert,TextInput , StyleSheet } from 'react-native';
 import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../colors';
-import { containerStyle, mainTextStyle } from '../variables';
+import { containerStyle, mainTextStyle } from '../Variables';
 import { useSelector, useDispatch } from 'react-redux';
 import * as clientActions from './../../redux/actions/clientActions'
 import CustomButton from '../CustomButton';

@@ -4,9 +4,9 @@ import { View, Text , FlatList , StyleSheet } from 'react-native';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getBarberDispo } from '../../db/SqlManager';
-import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../colors';
+import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR } from '../Colors';
 import ScheduleListItem from '../ScheduleListItem';
-import { containerStyle, mainTextStyle } from '../variables';
+import { containerStyle, mainTextStyle } from '../Variables';
 import * as clientActions from './../../redux/actions/clientActions'
 
 const TimeAvalScreen = ({navigation}) => {
