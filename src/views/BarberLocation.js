@@ -3,7 +3,7 @@ import { View, Text , StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
 import { useSelector } from 'react-redux';
 import CustomButton from '../components/CustomButton';
-import { containerStyle, requestLocationPermission } from '../components/variables';
+import { containerStyle, requestLocationPermission } from '../components/Variables';
 
 
 

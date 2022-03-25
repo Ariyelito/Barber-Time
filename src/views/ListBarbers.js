@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { containerStyle } from '../components/variables';
+import { containerStyle } from '../components/Variables';
 import BarberListItem from './../components/BarberListItem';
 import { getAll } from './../db/SqlManager';
 import { useSelector, useDispatch } from 'react-redux';

@@ -15,25 +15,25 @@ const Stack = createNativeStackNavigator();
 
 // create a component
 const ClientView = () => {
-  return (
-
-
-    <Stack.Navigator screenOptions={{
-      headerStyle: {
-        backgroundColor: NAVIGATION_HEADER_COLOR,
-      },
-      HEADER_TINT_COLOR: HEADER_TINT_COLOR,
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    }}  >
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{
-          headerTitle: 'Home'
-        }} />
-      {/* <Stack.Screen
+    return (
+      
+     
+            <Stack.Navigator screenOptions={{
+              headerStyle: {
+                backgroundColor: NAVIGATION_HEADER_COLOR,
+              },
+              headerTintColor: HEADER_TINT_COLOR,
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            }}  >
+                <Stack.Screen
+                  name="Home"
+                  component={Home}
+                  options={{
+                    headerTitle: 'Home'
+                  }} />
+                  {/* <Stack.Screen
                   name="Login"
                   component={Login}
                   options={{}} />

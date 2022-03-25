@@ -5,9 +5,9 @@ import { useSelector} from 'react-redux';
 import { insertAppoinment } from '../../db/SqlManager';
 import { TEXT_INPUT_BACK_BORDER_COLOR
 
-, TEXT_INPUT_BACKGROUND_COLOR } from '../colors';
+, TEXT_INPUT_BACKGROUND_COLOR } from '../Colors';
 import CustomButton from '../CustomButton';
-import { containerStyle, mainTextStyle } from '../variables';
+import { containerStyle, mainTextStyle } from '../Variables';
 
 // create a component
 const AppointmentConfirmation = ({navigation}) => {

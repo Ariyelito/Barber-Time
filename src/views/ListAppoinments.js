@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, FlatList, StyleSheet } from 'react-native';
 import BarberApointementListItem from '../components/BarberApointementListItem';
-import { containerStyle } from '../components/variables';
+import { containerStyle } from '../components/Variables';
 import { getAll } from '../db/SqlManager';
 import { useSelector } from 'react-redux';
 

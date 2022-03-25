@@ -21,7 +21,7 @@ const ClientView = () => {
               headerStyle: {
                 backgroundColor: NAVIGATION_HEADER_COLOR,
               },
-              HEADER_TINT_COLOR: HEADER_TINT_COLOR,
+              headerTintColor: HEADER_TINT_COLOR,
               headerTitleStyle: {
                 fontWeight: 'bold',
               },
