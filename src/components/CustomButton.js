@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Image ,  Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React from 'react';
+import { View,   Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { customButtonBackground, customButtonText } from './colors';
 
 
