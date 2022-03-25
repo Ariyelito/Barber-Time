@@ -29,11 +29,15 @@ const ClientView = () => {
                 <Stack.Screen
                   name="HomeBarber"
                   component={HomeBarber}
-                  options={{}} />
+                  options={{
+                    headerTitle: 'Home'
+                  }} />
                  <Stack.Screen
                   name="Login"
                   component={Login}
-                  options={{}} />
+                  options={{
+                    headerTitle: 'Login'
+                  }} />
                   <Stack.Screen
                   name="Signup"
                   component={Signup}
@@ -41,7 +45,9 @@ const ClientView = () => {
                   <Stack.Screen
                   name="ProfileBarber"
                   component={ProfileBarber}
-                  options={{}} /> 
+                  options={{
+                    headerTitle: 'Your appoinments'
+                  }} /> 
                  
               </Stack.Navigator>
          

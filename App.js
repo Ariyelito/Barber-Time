@@ -32,6 +32,7 @@ const App = () => {
             name="ChoosingPage"
             component={ChoosingPage}
             options={{
+              headerTitle: 'Barber Time',
               headerShown: true,
             }} />
           <Stack.Screen
