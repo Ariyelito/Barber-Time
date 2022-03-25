@@ -34,7 +34,7 @@ const Login = ({ navigation }) => {
     } else Alert.alert('Email and password are not valide');
   }
 
-  saveLogin = async () => {
+  const saveLogin = async () => {
     try {
       await AsyncStorage.setItem('login', JSON.stringify(activeBarber))
     } catch (e) {
@@ -42,7 +42,7 @@ const Login = ({ navigation }) => {
     }
   }
 
-  tryLogin = async () => {
+  const tryLogin = async () => {
     try {
       const user = await AsyncStorage.getItem('login')
       console.log('found login user : ' + user);

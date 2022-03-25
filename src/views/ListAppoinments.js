@@ -22,7 +22,7 @@ const ListAppoinments = () => {
 
 
     return (
-      <BarberApointementListItem time={item.time} name={item.nameClt} email={item.emailClt} onPressHandler={() => { console.log("remove apointement") }} />
+      <BarberApointementListItem barber={item} onPressHandler={() => { console.log("remove apointement") }} />
     );
 
   }
