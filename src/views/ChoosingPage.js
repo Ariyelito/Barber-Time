@@ -8,10 +8,10 @@ import { createTables } from '../db/SqlManager';
 
 
  const ChoosingPage = ({ navigation }) => {
+
  
   return (
     <View style={styles.container}>
-       
        <Image style={styles.logo} source={require('./../../images/logo.png')}></Image>
         <Text style={styles.text}>Vous êtes</Text>
       
