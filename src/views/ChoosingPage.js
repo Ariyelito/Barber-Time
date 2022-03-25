@@ -13,10 +13,10 @@ import { createTables } from '../db/SqlManager';
   return (
     <View style={styles.container}>
        <Image style={styles.logo} source={require('./../../images/logo.png')}></Image>
-        <Text style={styles.text}>Vous êtes</Text>
+        <Text style={styles.text}>Welcome</Text>
       
      
-      <CustomButton text={'Client'} onPress={()=>{navigation.navigate('ClientView')}}></CustomButton>
+      <CustomButton styles={{width:100}} text={'Client'} onPress={()=>{navigation.navigate('ClientView')}}></CustomButton>
       <CustomButton text={'Barber'} onPress={() => { navigation.navigate('BarberView') }}></CustomButton>
      
      

@@ -6,7 +6,7 @@ export const containerStyle = {
     flex:1,
 };
 export const mainTextStyle = {
-    fontSize:25,
+    fontSize:22,
     fontWeight:'bold',
     color:MAIN_TEXT_COLOR,
 }

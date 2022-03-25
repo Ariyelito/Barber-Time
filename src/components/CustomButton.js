@@ -17,7 +17,7 @@ const CustomButton = ({ text , onPress }) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    marginVertical:10,
+    marginTop: 20
   } , 
   
   button:{
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 12,
+    minWidth:160
   },
   text : {
     fontSize: 18,

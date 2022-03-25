@@ -15,7 +15,7 @@ import { createTables } from '../db/SqlManager';
         <Text style={styles.text}>Barber Time</Text>
       
      
-      <CustomButton text={'Trouver un barbier!'} onPress={()=>{navigation.navigate('ListBarbers')}}></CustomButton>
+      <CustomButton text={'Find a barber!'} onPress={()=>{navigation.navigate('ListBarbers')}}></CustomButton>
      
      
      
