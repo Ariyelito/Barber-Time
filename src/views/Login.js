@@ -13,13 +13,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Login = ({ navigation }) => {
   const dispatch = useDispatch();
   const activeBarber = useSelector(state => state.barber.connected);
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   useEffect(() => {
     tryLogin();
-  },[])
+  }, [])
 
   const login = () => {
     if (email != '' && password != '') {
@@ -28,10 +27,17 @@ const Login = ({ navigation }) => {
           dispatch(barberActions.setActiveBarber(userFound[0]))
           saveLogin(userFound[0]);
           navigation.navigate('ProfileBarber');
-
         } else Alert.alert('User not found');
       })
-    } else Alert.alert('Email and password are not valide');
+    } else Alert.alert('Please enter valid email and password');
+  }
+
+  const logout = async () => {
+    try {
+      await AsyncStorage.removeItem('login')
+    } catch (e) {
+      console.log('error while erasing login info' + e)
+    }
   }
 
   const saveLogin = async () => {
@@ -45,7 +51,8 @@ const Login = ({ navigation }) => {
   const tryLogin = async () => {
     try {
       const user = await AsyncStorage.getItem('login')
-      console.log('found login user : ' + user);
+      console.log('found login user : ');
+      console.log(user)
       user != null ? dispatch(barberActions.setActiveBarber(JSON.parse(user))) : console.log('no login user found.')
       user != null ? navigation.navigate('ProfileBarber') : null
     } catch (error) {

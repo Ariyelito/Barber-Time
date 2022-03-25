@@ -22,7 +22,7 @@ const AppointmentConfirmation = ({ navigation }) => {
   }
   const confirmAppointment = () => {
     insertAppoinment(email, name, daySelected, time, barber.barberId);
-    alert('Appoinment was booked succesfuly');
+    alert('Your appointment was booked succesfully!');
     navigation.navigate('Home');
   }
   return (

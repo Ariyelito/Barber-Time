@@ -6,9 +6,9 @@ import ListAppoinments from './ListAppoinments';
 
 
 const ProfileBarber = () => {
-  const barber = useSelector(state => state.barber.connected);
+  const activeBarber = useSelector(state => state.barber.connected);
   console.log("barbier connecté:")
-  console.log(barber)
+  console.log(activeBarber)
   // const barber = useSelector(state => state.client.selBarber).selBarber;
  
    const getAllAppoinments = ()=>{
