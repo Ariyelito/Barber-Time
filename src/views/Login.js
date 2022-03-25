@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Login = ({ navigation }) => {
+  
   const dispatch = useDispatch();
   const activeBarber = useSelector(state => state.barber.connected);
 
@@ -21,6 +22,16 @@ const Login = ({ navigation }) => {
     tryLogin();
   },[])
 
+  const tryLogin = async () => {
+    try {
+      const user = await AsyncStorage.getItem('login')
+      console.log('found login user : ' + user);
+      user != null ? dispatch(barberActions.setActiveBarber(JSON.parse(user))) : console.log('no login user found.')
+      user != null ? navigation.navigate('ProfileBarber') : null
+    } catch (error) {
+      console.log('error while loading login user' + error)
+    }
+  }
   const login = () => {
     if (email != '' && password != '') {
       barberExistOKConnection({ email: email, password: password }, (exist, userFound) => {
@@ -34,24 +45,7 @@ const Login = ({ navigation }) => {
     } else Alert.alert('Email and password are not valide');
   }
 
-  const saveLogin = async () => {
-    try {
-      await AsyncStorage.setItem('login', JSON.stringify(activeBarber))
-    } catch (e) {
-      console.log('error while saving login info' + e)
-    }
-  }
-
-  const tryLogin = async () => {
-    try {
-      const user = await AsyncStorage.getItem('login')
-      console.log('found login user : ' + user);
-      user != null ? dispatch(barberActions.setActiveBarber(JSON.parse(user))) : console.log('no login user found.')
-      user != null ? navigation.navigate('ProfileBarber') : null
-    } catch (error) {
-      console.log('error while loading login user' + error)
-    }
-  }
+ 
 
   return (
     <View style={styles.container}>
