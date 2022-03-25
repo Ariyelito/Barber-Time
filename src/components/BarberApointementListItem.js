@@ -8,13 +8,13 @@ const BarberApointementListItem = ({time,name,email, onPressHandler}) => {
     return (
         <View style={styles.container} >
     
-            <Text style={styles.name}>
+            <Text style={styles.time}>
              {time}
             </Text>
             <Text style={styles.name}>
              {name}
             </Text>
-            <Text style={styles.name}>
+            <Text style={styles.email}>
              {email}
             </Text>
         </View>
@@ -31,12 +31,23 @@ const styles = StyleSheet.create({
         marginVertical:3,
         paddingVertical:10,
         elevation:7,
-        borderBottomWidth:1,
+        borderBottomWidth:0.5,
+        flexDirection:'row'
       } , 
       name :{
-        fontSize:30,
-        
+        fontSize:15,
+        textAlign: 'left',
+        marginLeft:'auto',
+
       }, 
+      time: {
+          fontSize: 15,
+          fontWeight: 'bold',
+      },
+      email: {
+          marginLeft:'auto',
+        fontSize: 15
+    }
     
 });
 

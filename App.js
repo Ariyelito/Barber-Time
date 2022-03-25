@@ -20,7 +20,6 @@ import { createTablesDb, dropDatabase, insertAppoinment } from './src/db/SqlMana
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-
   createTablesDb();
 
   return (

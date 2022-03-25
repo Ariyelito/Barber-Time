@@ -10,15 +10,10 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-
       <Image style={styles.logo} source={require('./../../images/logo.png')}></Image>
       <Text style={styles.text}>Barber Time</Text>
-
-
       <CustomButton text={'Connectez-vous en tant que barbier'} onPress={() => { navigation.navigate('Login') }}></CustomButton>
       <CustomButton text={'Créez un compte'} onPress={() => { navigation.navigate('Signup') }}></CustomButton>
-
-
     </View>
   );
 }
