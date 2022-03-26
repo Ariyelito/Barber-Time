@@ -71,8 +71,9 @@ const Login = ({ navigation }) => {
       <TextInput style={styles.input} placeholder='Email' onChangeText={setEmail}></TextInput>
       <TextInput style={styles.input} placeholder='Password' onChangeText={setPassword}></TextInput>
       <CustomButton text={'Login'} onPress={() => { login() }}></CustomButton>
-      <CustomButton text={'Continue as ' + activeBarber.name} onPress={() => { navigation.navigate('ProfileBarber') }}></CustomButton>
-
+      {activeBarber.name != null ?
+        <CustomButton text={'Continue as ' + activeBarber.name} onPress={() => { navigation.navigate('ProfileBarber') }}></CustomButton>
+        : null}
     </View>
 
   );
