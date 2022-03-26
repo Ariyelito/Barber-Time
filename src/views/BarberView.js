@@ -44,7 +44,16 @@ const ClientView = ({ navigation }) => {
         name="Login"
         component={Login}
         options={{
-          headerTitle: 'Login'
+          headerTitle: 'Login',
+          headerRight: () => (
+
+            <Button
+              onPress={() => navigation.navigate('Setting')}
+              title="Settings">
+            </Button>
+
+          ),
+
         }} />
       <Stack.Screen
         name="Signup"
