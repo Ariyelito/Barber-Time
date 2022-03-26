@@ -8,7 +8,7 @@ import ClientView from './src/views/ClientView';
 import BarberView from './src/views/BarberView';
 import ChoosingPage from './src/views/ChoosingPage';
 import { createTablesDb } from './src/db/SqlManager';
-import {Notifications} from 'react-native-notifications';
+
 
 const Stack = createNativeStackNavigator();
 
