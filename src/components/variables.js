@@ -1,5 +1,7 @@
 import { MAIN_BACK_GROUND_COLOR, MAIN_TEXT_COLOR } from "./Colors";
 import { PermissionsAndroid } from 'react-native';
+import {Notifications} from 'react-native-notifications';
+
 export const containerStyle = {
     alignItems: "center",
     backgroundColor:MAIN_BACK_GROUND_COLOR,
@@ -31,3 +33,23 @@ export async function requestLocationPermission()
     console.warn(err)
   }
 }
+
+export const notify = (title , body) =>{
+  Notifications.registerRemoteNotifications();
+
+  Notifications.events().registerNotificationReceivedForeground((notification, completion) => {
+    console.log(`Notification received in foreground: ${notification.title} : ${notification.body}`);
+    completion({alert: false, sound: false, badge: false});
+  });
+
+  Notifications.events().registerNotificationOpened((notification, completion) => {
+    console.log(`Notification opened: ${notification.payload}`);
+    completion();
+  });
+
+  Notifications.postLocalNotification({
+    title: title,
+    body: body,
+    extra: "data"
+});
+};

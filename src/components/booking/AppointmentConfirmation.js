@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { insertAppoinment } from '../../db/SqlManager';
 import { TEXT_INPUT_BACK_BORDER_COLOR, TEXT_INPUT_BACKGROUND_COLOR, MAIN_TEXT_COLOR } from '../Colors';
 import CustomButton from '../CustomButton';
-import { containerStyle, mainTextStyle } from '../Variables';
+import { containerStyle, mainTextStyle, notify } from '../Variables';
 
 // create a component
 const AppointmentConfirmation = ({ navigation }) => {
@@ -23,6 +23,7 @@ const AppointmentConfirmation = ({ navigation }) => {
   const confirmAppointment = () => {
     insertAppoinment(email, name, daySelected, time, barber.barberId);
     alert('Your appointment was booked succesfully');
+    notify('Appointment' , 'Your appointment was booked succesfully');
     navigation.navigate('Home');
   }
   return (
