@@ -8,10 +8,15 @@ import ClientView from './src/views/ClientView';
 import BarberView from './src/views/BarberView';
 import ChoosingPage from './src/views/ChoosingPage';
 import { createTablesDb } from './src/db/SqlManager';
+import SettingScreen from './src/views/SettingScreen'
+
+// import Icon from '@icon/ionicons';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  
+
   createTablesDb();
 
   return (
@@ -33,7 +38,7 @@ const App = () => {
             component={ChoosingPage}
             options={{
               headerTitle: 'Barber Time',
-              headerShown: true,
+              headerShown: true
             }} />
           <Stack.Screen
             name="ClientView"
@@ -44,6 +49,8 @@ const App = () => {
             name="BarberView"
             component={BarberView}
             options={{
+            }} />
+          <Stack.Screen name="Setting" component={SettingScreen} options={{
             }} />
         </Stack.Navigator>
       </NavigationContainer>
