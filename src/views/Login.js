@@ -58,7 +58,7 @@ const Login = ({ navigation }) => {
       const user = await AsyncStorage.getItem('@login')
       console.log('found stored login user : ');
       console.log(user)
-      user != null ? dispatch(barberActions.setActiveBarber(JSON.parse(user))) : console.log('no login user found.')
+      user != null ? dispatch(barberActions.setActiveBarber(JSON.parse(user))) : dispatch(barberActions.setActiveBarber({}))
       // user != null ? navigation.navigate('ProfileBarber') : null
     } catch (error) {
       console.log('error while loading login user' + error)

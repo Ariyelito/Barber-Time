@@ -10,6 +10,7 @@ import BarberDetail from '../views/BarberDetail';
 import BarberLocation from '../views/BarberLocation';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useSelector } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Stack = createNativeStackNavigator();
@@ -17,9 +18,8 @@ const Stack = createNativeStackNavigator();
 // create a component
 const ClientView = () => {
   const barber = useSelector(state => state.client.selBarber);
+
   return (
-
-
     <Stack.Navigator screenOptions={{
       headerStyle: {
         backgroundColor: NAVIGATION_HEADER_COLOR,
@@ -52,15 +52,13 @@ const ClientView = () => {
         component={BarberLocation}
         options={{
           headerTitle: barber.name + "'s salon location"
-        }} />
+        }}
+      />
       <Stack.Screen
         name="Booking"
         component={Booking}
         options={{}} />
     </Stack.Navigator>
-
-
-
   );
 };
 
