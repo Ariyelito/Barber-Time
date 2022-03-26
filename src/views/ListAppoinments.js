@@ -13,12 +13,14 @@ const ListAppoinments = () => {
   useEffect(() => {
     //marche pas
     getAll('appoinments', tab => setData(tab.filter(elem => elem.barberId == barber.barberId)));
+    console.log("appoinments from the database : ")
+    console.log(data)
 
   }, []);
 
 
   const renderItem = ({ item }) => {
-    console.log(item);
+    // console.log(item);
 
 
     return (
