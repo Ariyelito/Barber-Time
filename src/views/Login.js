@@ -27,7 +27,7 @@ const Login = ({ navigation }) => {
           dispatch(barberActions.setActiveBarber(userFound[0]))
           console.log('login() as :')
           console.log(activeBarber)
-          saveLogin();
+          saveLogin(userFound[0]);
           navigation.navigate('ProfileBarber');
         } else Alert.alert('User not found');
       })
@@ -36,7 +36,7 @@ const Login = ({ navigation }) => {
 
   const logout = async () => {
     try {
-      await AsyncStorage.removeItem('login')
+      await AsyncStorage.removeItem('@login')
     } catch (e) {
       console.log('error while erasing login info' + e)
     }
@@ -44,7 +44,10 @@ const Login = ({ navigation }) => {
 
   const saveLogin = async (user) => {
     try {
-      await AsyncStorage.setItem('@login', JSON.stringify(activeBarber))
+      // const activeBarber1 = useSelector(state => state.barber.connected);
+      await AsyncStorage.setItem('@login', JSON.stringify(user))
+      console.log('saved login from :')
+      console.log(user)
     } catch (e) {
       console.log('error while saving login info' + e)
     }
@@ -55,7 +58,7 @@ const Login = ({ navigation }) => {
       const user = await AsyncStorage.getItem('@login')
       console.log('found stored login user : ');
       console.log(user)
-      // user != null ? dispatch(barberActions.setActiveBarber(JSON.parse(user))) : console.log('no login user found.')
+      user != null ? dispatch(barberActions.setActiveBarber(JSON.parse(user))) : console.log('no login user found.')
       // user != null ? navigation.navigate('ProfileBarber') : null
     } catch (error) {
       console.log('error while loading login user' + error)
@@ -68,6 +71,8 @@ const Login = ({ navigation }) => {
       <TextInput style={styles.input} placeholder='Email' onChangeText={setEmail}></TextInput>
       <TextInput style={styles.input} placeholder='Password' onChangeText={setPassword}></TextInput>
       <CustomButton text={'Login'} onPress={() => { login() }}></CustomButton>
+      <CustomButton text={'Continue as ' + activeBarber.name} onPress={() => { navigation.navigate('ProfileBarber') }}></CustomButton>
+
     </View>
 
   );
