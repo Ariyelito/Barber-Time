@@ -8,6 +8,7 @@ import ClientView from './src/views/ClientView';
 import BarberView from './src/views/BarberView';
 import ChoosingPage from './src/views/ChoosingPage';
 import { createTablesDb } from './src/db/SqlManager';
+import Navigator from './src/views/Drawer'
 
 const Stack = createNativeStackNavigator();
 
@@ -15,7 +16,9 @@ const App = () => {
   createTablesDb();
 
   return (
+    
     <Provider store={store} >
+      <Navigator/>
       <NavigationContainer >
         <Stack.Navigator screenOptions={{
           headerStyle: {
