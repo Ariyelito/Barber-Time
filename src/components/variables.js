@@ -35,6 +35,20 @@ export async function requestLocationPermission()
 }
 
 export const notify = (title , body) =>{
+  Notifications.setNotificationChannel({
+    channelId: 'my-channeltest',
+    name: 'My Channeltest',
+    importance: 5,
+    description: 'My Description',
+    enableLights: true,
+    enableVibration: true,
+   
+    showBadge: true,
+    vibrationPattern: [200, 1000, 500, 1000, 500],
+})
+
+
+
   Notifications.registerRemoteNotifications();
 
   Notifications.events().registerNotificationReceivedForeground((notification, completion) => {
@@ -50,6 +64,7 @@ export const notify = (title , body) =>{
   Notifications.postLocalNotification({
     title: title,
     body: body,
-    extra: "data"
+    extra: "data",
+    channelId:'my-channeltest' ,
 });
 };
