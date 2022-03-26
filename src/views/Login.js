@@ -16,16 +16,18 @@ const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // useEffect(() => {
-  //   tryLogin();
-  // }, [])
+  useEffect(() => {
+    tryLogin();
+  }, [])
 
   const login = () => {
     if (email != '' && password != '') {
       barberExistOKConnection({ email: email, password: password }, (exist, userFound) => {
         if (exist) {
           dispatch(barberActions.setActiveBarber(userFound[0]))
-          saveLogin(userFound[0]);
+          console.log('login() as :')
+          console.log(activeBarber)
+          saveLogin();
           navigation.navigate('ProfileBarber');
         } else Alert.alert('User not found');
       })
@@ -40,9 +42,9 @@ const Login = ({ navigation }) => {
     }
   }
 
-  const saveLogin = async () => {
+  const saveLogin = async (user) => {
     try {
-      await AsyncStorage.setItem('login', JSON.stringify(activeBarber))
+      await AsyncStorage.setItem('@login', JSON.stringify(activeBarber))
     } catch (e) {
       console.log('error while saving login info' + e)
     }
@@ -50,11 +52,11 @@ const Login = ({ navigation }) => {
 
   const tryLogin = async () => {
     try {
-      const user = await AsyncStorage.getItem('login')
-      console.log('found login user : ');
+      const user = await AsyncStorage.getItem('@login')
+      console.log('found stored login user : ');
       console.log(user)
-      user != null ? dispatch(barberActions.setActiveBarber(JSON.parse(user))) : console.log('no login user found.')
-      user != null ? navigation.navigate('ProfileBarber') : null
+      // user != null ? dispatch(barberActions.setActiveBarber(JSON.parse(user))) : console.log('no login user found.')
+      // user != null ? navigation.navigate('ProfileBarber') : null
     } catch (error) {
       console.log('error while loading login user' + error)
     }

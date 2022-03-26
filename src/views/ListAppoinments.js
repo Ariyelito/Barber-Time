@@ -11,8 +11,8 @@ const ListAppoinments = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    //getAll('barbers', tab=>console.log(tab) );
-    getAll('appoinments', tab => setData(tab.filter(elem => elem.barberId !== barber.barberId)));
+    //marche pas
+    getAll('appoinments', tab => setData(tab.filter(elem => elem.barberId == barber.barberId)));
 
   }, []);
 

@@ -6,13 +6,14 @@ import ListAppoinments from './ListAppoinments';
 
 
 const ProfileBarber = () => {
-  const activeBarber = useSelector(state => state.barber.connected);
-  console.log("barbier connecté:")
-  console.log(activeBarber)
+  // const activeBarber = useSelector(state => state.barber.connected);
+  // console.log("barbier connecté:")
+  // console.log(activeBarber)
   // const barber = useSelector(state => state.client.selBarber).selBarber;
  
    const getAllAppoinments = ()=>{
      getAll('appoinments',(tab)=>{
+       console.log('appoinments from database :')
        console.log(tab);
      });
    }
