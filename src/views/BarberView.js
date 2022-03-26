@@ -48,7 +48,7 @@ const ClientView = ({ navigation }) => {
           headerRight: () => (
 
             <Button
-              onPress={() => navigation.navigate('Setting')}
+              onPress={() => navigation.navigate('SettingScreen')}
               title="Settings">
             </Button>
 

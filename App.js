@@ -8,6 +8,7 @@ import ClientView from './src/views/ClientView';
 import BarberView from './src/views/BarberView';
 import ChoosingPage from './src/views/ChoosingPage';
 import { createTablesDb } from './src/db/SqlManager';
+import SettingScreen from './src/views/SettingScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -47,6 +48,14 @@ const App = () => {
             component={BarberView}
             options={{
             }} />
+               <Stack.Screen
+            name="SettingScreen"
+            component={SettingScreen}
+            options={{
+              headerTitle: 'Settings',
+              headerShown:true,
+            }} />
+            
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
