@@ -11,7 +11,7 @@ const ListAppoinments = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    //marche pas
+    
     getAll('appoinments', tab => setData(tab.filter(elem => elem.barberId == barber.barberId)));
     console.log("appoinments from the database : ")
     console.log(data)
@@ -20,7 +20,7 @@ const ListAppoinments = () => {
 
 
   const renderItem = ({ item }) => {
-    // console.log(item);
+    
 
 
     return (

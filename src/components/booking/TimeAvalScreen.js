@@ -12,11 +12,14 @@ import * as clientActions from './../../redux/actions/clientActions'
 const TimeAvalScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const daySelected = useSelector(state => state.client.day)
+  const barber = useSelector(state => state.client.selBarber);
 
+ 
+  
   //getAll('appoinments' , tab=>console.log(tab));
   const [data, setData] = useState([]);
   useEffect(() => {
-    getBarberDispo(1, daySelected, (disp) => setData(disp));
+    getBarberDispo(barber.barberId, daySelected, (disp) => setData(disp));
   }, []);
 
   const pressHandler = (time) => {
